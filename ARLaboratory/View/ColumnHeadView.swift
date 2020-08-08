@@ -33,7 +33,7 @@ struct ColumnHeadView: View {
                     VStack(alignment: .trailing) {
                         Image(systemName: "chevron.right")
                             .font(Font.body.bold())
-                            .padding()
+                            .padding(.all, 12)
                             .background(Circle().fill(Color.secondaryColor))
                             .cornerRadius(1000)
                             .shadow(color: Color.secondaryColor.opacity(0.4), radius: 5.0, x: 0.0, y: 7.0)
