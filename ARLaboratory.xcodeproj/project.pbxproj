@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,15 +11,31 @@
 		633707BA24DB14C1008256FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633707B924DB14C1008256FC /* ContentView.swift */; };
 		633707BC24DB14C2008256FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BB24DB14C2008256FC /* Assets.xcassets */; };
 		633707BF24DB14C2008256FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BE24DB14C2008256FC /* Preview Assets.xcassets */; };
+		6370B85824DE8F5E00DC43E5 /* RecommandColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B85724DE8F5E00DC43E5 /* RecommandColumn.swift */; };
+		639E6E9824DDB23000073784 /* Constants+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E6E9724DDB23000073784 /* Constants+Screen.swift */; };
+		639E6E9B24DE423300073784 /* LatexTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E6E9A24DE423300073784 /* LatexTextView.swift */; };
+		639E6EA024DE55EF00073784 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 639E6E9F24DE55EF00073784 /* Colors.xcassets */; };
+		639E6EA124DE57C300073784 /* Constants+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E6E9D24DE43A700073784 /* Constants+Color.swift */; };
+		639E6EA324DE60E300073784 /* ColumnHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E6EA224DE60E300073784 /* ColumnHeadView.swift */; };
+		FA7E9522460ABC3BAF4A9B39 /* Pods_ARLaboratory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F1A11778A165D6C64BF1B /* Pods_ARLaboratory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21527092A38F7F8C12FFD701 /* Pods-ARLaboratory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARLaboratory.debug.xcconfig"; path = "Target Support Files/Pods-ARLaboratory/Pods-ARLaboratory.debug.xcconfig"; sourceTree = "<group>"; };
 		633707B424DB14C1008256FC /* ARLaboratory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARLaboratory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633707B724DB14C1008256FC /* ARLaboratoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARLaboratoryApp.swift; sourceTree = "<group>"; };
 		633707B924DB14C1008256FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		633707BB24DB14C2008256FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		633707BE24DB14C2008256FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		633707C024DB14C2008256FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6370B85724DE8F5E00DC43E5 /* RecommandColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandColumn.swift; sourceTree = "<group>"; };
+		639E6E9724DDB23000073784 /* Constants+Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Screen.swift"; sourceTree = "<group>"; };
+		639E6E9A24DE423300073784 /* LatexTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatexTextView.swift; sourceTree = "<group>"; };
+		639E6E9D24DE43A700073784 /* Constants+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Color.swift"; sourceTree = "<group>"; };
+		639E6E9F24DE55EF00073784 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		639E6EA224DE60E300073784 /* ColumnHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnHeadView.swift; sourceTree = "<group>"; };
+		8C3A2B5F14F50FFB34C0FA77 /* Pods-ARLaboratory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARLaboratory.release.xcconfig"; path = "Target Support Files/Pods-ARLaboratory/Pods-ARLaboratory.release.xcconfig"; sourceTree = "<group>"; };
+		CC1F1A11778A165D6C64BF1B /* Pods_ARLaboratory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARLaboratory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7E9522460ABC3BAF4A9B39 /* Pods_ARLaboratory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D660553A87F1292CDE8F147 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21527092A38F7F8C12FFD701 /* Pods-ARLaboratory.debug.xcconfig */,
+				8C3A2B5F14F50FFB34C0FA77 /* Pods-ARLaboratory.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		37613FC729C1F910A900825F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC1F1A11778A165D6C64BF1B /* Pods_ARLaboratory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		633707AB24DB14C1008256FC = {
 			isa = PBXGroup;
 			children = (
 				633707B624DB14C1008256FC /* ARLaboratory */,
 				633707B524DB14C1008256FC /* Products */,
+				2D660553A87F1292CDE8F147 /* Pods */,
+				37613FC729C1F910A900825F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,10 +88,10 @@
 		633707B624DB14C1008256FC /* ARLaboratory */ = {
 			isa = PBXGroup;
 			children = (
-				633707B724DB14C1008256FC /* ARLaboratoryApp.swift */,
+				639E6E9924DE421A00073784 /* View */,
+				639E6E9624DDB21F00073784 /* Helper */,
 				633707B924DB14C1008256FC /* ContentView.swift */,
-				633707BB24DB14C2008256FC /* Assets.xcassets */,
-				633707C024DB14C2008256FC /* Info.plist */,
+				639E6E9C24DE438B00073784 /* Supporting Files */,
 				633707BD24DB14C2008256FC /* Preview Content */,
 			);
 			path = ARLaboratory;
@@ -69,6 +105,36 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		639E6E9624DDB21F00073784 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				639E6E9D24DE43A700073784 /* Constants+Color.swift */,
+				639E6E9724DDB23000073784 /* Constants+Screen.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		639E6E9924DE421A00073784 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				639E6E9A24DE423300073784 /* LatexTextView.swift */,
+				639E6EA224DE60E300073784 /* ColumnHeadView.swift */,
+				6370B85724DE8F5E00DC43E5 /* RecommandColumn.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		639E6E9C24DE438B00073784 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				633707B724DB14C1008256FC /* ARLaboratoryApp.swift */,
+				633707BB24DB14C2008256FC /* Assets.xcassets */,
+				639E6E9F24DE55EF00073784 /* Colors.xcassets */,
+				633707C024DB14C2008256FC /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 633707C324DB14C2008256FC /* Build configuration list for PBXNativeTarget "ARLaboratory" */;
 			buildPhases = (
+				8420EB51DE2032FED23A1CAF /* [CP] Check Pods Manifest.lock */,
 				633707B024DB14C1008256FC /* Sources */,
 				633707B124DB14C1008256FC /* Frameworks */,
 				633707B224DB14C1008256FC /* Resources */,
+				0FBD4CECF6AC42E36E20A67B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639E6EA024DE55EF00073784 /* Colors.xcassets in Resources */,
 				633707BF24DB14C2008256FC /* Preview Assets.xcassets in Resources */,
 				633707BC24DB14C2008256FC /* Assets.xcassets in Resources */,
 			);
@@ -133,13 +202,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FBD4CECF6AC42E36E20A67B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARLaboratory/Pods-ARLaboratory-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARLaboratory/Pods-ARLaboratory-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARLaboratory/Pods-ARLaboratory-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8420EB51DE2032FED23A1CAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARLaboratory-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		633707B024DB14C1008256FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639E6E9B24DE423300073784 /* LatexTextView.swift in Sources */,
 				633707BA24DB14C1008256FC /* ContentView.swift in Sources */,
+				639E6EA324DE60E300073784 /* ColumnHeadView.swift in Sources */,
+				6370B85824DE8F5E00DC43E5 /* RecommandColumn.swift in Sources */,
+				639E6EA124DE57C300073784 /* Constants+Color.swift in Sources */,
 				633707B824DB14C1008256FC /* ARLaboratoryApp.swift in Sources */,
+				639E6E9824DDB23000073784 /* Constants+Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +380,7 @@
 		};
 		633707C424DB14C2008256FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21527092A38F7F8C12FFD701 /* Pods-ARLaboratory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -271,7 +388,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ARLaboratory/Preview Content\"";
 				DEVELOPMENT_TEAM = XKUVHTJ3W8;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ARLaboratory/Info.plist;
+				INFOPLIST_FILE = "ARLaboratory/Supporting Files/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -286,6 +403,7 @@
 		};
 		633707C524DB14C2008256FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C3A2B5F14F50FFB34C0FA77 /* Pods-ARLaboratory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -293,7 +411,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ARLaboratory/Preview Content\"";
 				DEVELOPMENT_TEAM = XKUVHTJ3W8;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ARLaboratory/Info.plist;
+				INFOPLIST_FILE = "ARLaboratory/Supporting Files/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

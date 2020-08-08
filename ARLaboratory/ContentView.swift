@@ -9,7 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!").padding()
+        VStack(alignment: .leading) {
+            ColumnHeadView(title: "今日推荐", subtitle: "Today")
+                .padding(.horizontal, 24)
+                .padding(.vertical)
+            RecommandColumn()
+            
+            Spacer()
+        }
     }
 }
 
