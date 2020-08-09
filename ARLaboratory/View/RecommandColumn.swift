@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct MyButtonStyle: PrimitiveButtonStyle {
+  func makeBody(configuration: Configuration) -> some View {
+    configuration
+      .label
+      .onLongPressGesture(
+        minimumDuration: 0,
+        perform: { print("123") }
+      )
+  }
+}
+
 let linearGradients = [
     LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8, green: 0.6823529412, blue: 0.9647058824, alpha: 1)), Color(#colorLiteral(red: 0.4156862745, green: 0.368627451, blue: 0.9568627451, alpha: 1))]),
                    startPoint: UnitPoint(x: 0.3, y: -0.1),
@@ -20,18 +31,30 @@ let linearGradients = [
 ]
 
 struct RecommandColumn: View {
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
+    var body: some View {ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 24) {
-                RecommandCard(title: "小球碰撞\n验证动量守恒定律", subtitle: "初中物理", illustrationImage: "illustrations_momentum", linearGradient: linearGradients[0], grade: 82)
+                RecommandCard(title: "小球碰撞\n验证动量守恒定律", subtitle: "高中物理", illustrationImage: "illustrations_momentum", linearGradient: linearGradients[0], grade: 82)
+                    .responsiveButton(action: nil)
+                
                 RecommandCard(title: "探究凸透镜\n成像规律", subtitle: "初中物理", illustrationImage: "illustrations_convex", linearGradient: linearGradients[1])
-                RecommandCard(title: "化学分子\n晶体模型展示", subtitle: "初中化学", illustrationImage: "illustrations_cell", linearGradient: linearGradients[2])
-                RecommandCard(title: "小球碰撞\n验证动量守恒定律", subtitle: "初中物理", illustrationImage: "illustrations_momentum", linearGradient: linearGradients[0], grade: 82)
+                    .responsiveButton(action: nil)
+                
+                RecommandCard(title: "化学分子\n晶体模型展示", subtitle: "高中化学", illustrationImage: "illustrations_cell", linearGradient: linearGradients[2])
+                    .responsiveButton(action: nil)
+                
+                RecommandCard(title: "小球碰撞\n验证动量守恒定律", subtitle: "高中物理", illustrationImage: "illustrations_momentum", linearGradient: linearGradients[0], grade: 82)
+                    .responsiveButton(action: nil)
+                
                 RecommandCard(title: "探究凸透镜\n成像规律", subtitle: "初中物理", illustrationImage: "illustrations_convex", linearGradient: linearGradients[1])
-                RecommandCard(title: "化学分子\n晶体模型展示", subtitle: "初中化学", illustrationImage: "illustrations_cell", linearGradient: linearGradients[2])
+                    .responsiveButton(action: nil)
+                
+                RecommandCard(title: "化学分子\n晶体模型展示", subtitle: "高中化学", illustrationImage: "illustrations_cell", linearGradient: linearGradients[2])
+                    .responsiveButton(action: nil)
+                
             }
             .padding(.horizontal)
             .padding(.bottom, 28)
+            .padding(.vertical, 10)
         }
     }
 }
@@ -133,4 +156,3 @@ fileprivate struct RingView: View {
         }
     }
 }
-
