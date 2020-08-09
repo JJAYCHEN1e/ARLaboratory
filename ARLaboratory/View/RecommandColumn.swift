@@ -45,11 +45,15 @@ struct RecommandCard: View {
     var startColor: Color?
     var endColor: Color?
     
+    let cardWidth: CGFloat = 295
+    let cardHeight: CGFloat = 339
+    let illustrationHeight: CGFloat = 150
+    
     var body: some View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 20)
                 .fill(linearGradient)
-                .frame(width: 295, height: 339)
+                .frame(width: cardWidth, height: cardHeight)
                 .shadow(color: Color.white.opacity(0.05), radius:3, x:0, y:1)
                 .shadow(color: Color(#colorLiteral(red: 0.6156862745, green: 0.6156862745, blue: 0.8823529412, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
             
@@ -69,7 +73,7 @@ struct RecommandCard: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.blue)
-                    .frame(height: 150)
+                    .frame(height: illustrationHeight)
                 
                 Spacer()
                 
@@ -100,7 +104,7 @@ struct RecommandCard: View {
             .padding(.horizontal, 20)
             .padding(.vertical)
         }
-        .frame(width: 295, height: 339)
+        .frame(width: cardWidth, height: cardHeight)
     }
 }
 
