@@ -12,17 +12,13 @@ struct FavoriteColumn: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 24) {
                 FavoriteCard(title: "小球碰撞\n验证动量守恒定律", subtitle: "高中物理", illustrationImage: "illustrations_momentum")
-                    .responsiveButton(action: nil)
                 
                 FavoriteCard(title: "探究凸透镜\n成像规律", subtitle: "高中物理", illustrationImage: "illustrations_convex")
-                    .responsiveButton(action: nil)
                 
                 FavoriteCard(title: "化学分子\n晶体模型展示", subtitle: "高中化学", illustrationImage: "illustrations_cell")
-                    .responsiveButton(action: nil)
             }
             .padding(.horizontal)
-            .padding(.bottom, 28)
-            .padding(.vertical, 10)
+            .padding(.vertical, 28)
         }
     }
 }
@@ -72,6 +68,7 @@ struct FavoriteCard: View {
             
         }
         .frame(idealWidth: cardWidth, maxWidth: cardWidth, idealHeight: cardHeight, maxHeight: cardHeight)
+        .responsiveButton(action: nil)
     }
 }
 

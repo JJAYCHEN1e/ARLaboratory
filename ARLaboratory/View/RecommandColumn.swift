@@ -8,53 +8,32 @@
 import SwiftUI
 
 struct MyButtonStyle: PrimitiveButtonStyle {
-  func makeBody(configuration: Configuration) -> some View {
-    configuration
-      .label
-      .onLongPressGesture(
-        minimumDuration: 0,
-        perform: { print("123") }
-      )
-  }
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .onLongPressGesture(
+                minimumDuration: 0,
+                perform: { print("123") }
+            )
+    }
 }
 
-let linearGradients = [
-    LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8, green: 0.6823529412, blue: 0.9647058824, alpha: 1)), Color(#colorLiteral(red: 0.4156862745, green: 0.368627451, blue: 0.9568627451, alpha: 1))]),
-                   startPoint: UnitPoint(x: 0.3, y: -0.1),
-                   endPoint: UnitPoint(x: 0.8, y: 1.1)),
-    LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.7443302274, blue: 0.4703813195, alpha: 1)), Color(#colorLiteral(red: 0.9647058824, green: 0.5019607843, blue: 0.5019607843, alpha: 1))]),
-                   startPoint: UnitPoint(x: 0, y: 0),
-                   endPoint: UnitPoint(x: 1, y: 1)),
-    LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9568627451, green: 0.9176470588, blue: 0.8862745098, alpha: 1)), Color(#colorLiteral(red: 0.4274509804, green: 0.6117647059, blue: 0.7529411765, alpha: 1))]),
-                   startPoint: UnitPoint(x: 0, y: -0.5),
-                   endPoint: UnitPoint(x: 1, y: 1)),
-]
-
 struct RecommandColumn: View {
-    var body: some View {ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 24) {
-                RecommandCard(title: "小球碰撞\n验证动量守恒定律", subtitle: "高中物理", illustrationImage: "illustrations_momentum", linearGradient: linearGradients[0], grade: 82)
-                    .responsiveButton(action: nil)
-                
-                RecommandCard(title: "探究凸透镜\n成像规律", subtitle: "初中物理", illustrationImage: "illustrations_convex", linearGradient: linearGradients[1])
-                    .responsiveButton(action: nil)
-                
-                RecommandCard(title: "化学分子\n晶体模型展示", subtitle: "高中化学", illustrationImage: "illustrations_cell", linearGradient: linearGradients[2])
-                    .responsiveButton(action: nil)
-                
-                RecommandCard(title: "小球碰撞\n验证动量守恒定律", subtitle: "高中物理", illustrationImage: "illustrations_momentum", linearGradient: linearGradients[0], grade: 82)
-                    .responsiveButton(action: nil)
-                
-                RecommandCard(title: "探究凸透镜\n成像规律", subtitle: "初中物理", illustrationImage: "illustrations_convex", linearGradient: linearGradients[1])
-                    .responsiveButton(action: nil)
-                
-                RecommandCard(title: "化学分子\n晶体模型展示", subtitle: "高中化学", illustrationImage: "illustrations_cell", linearGradient: linearGradients[2])
-                    .responsiveButton(action: nil)
-                
+    var illustration: Namespace.ID
+    
+    var body: some View {
+        ZStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 24) {
+                    ForEach(labs, id: \.title) {
+                        lab in
+                        RecommandCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient, performance: lab.performance ?? 0.0)
+                    }
+                    
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 28)
             }
-            .padding(.horizontal)
-            .padding(.bottom, 28)
-            .padding(.vertical, 10)
         }
     }
 }
@@ -64,7 +43,7 @@ struct RecommandCard: View {
     var subtitle: String
     var illustrationImage: String
     var linearGradient: LinearGradient
-    var grade: CGFloat?
+    var performance: CGFloat?
     var startColor: Color?
     var endColor: Color?
     
@@ -111,7 +90,7 @@ struct RecommandCard: View {
                                     .foregroundColor(.white)
                                     .padding(.top, 12)
                                 Spacer()
-                                Text(grade != nil ? "2020-08-03 14:00" : "暂无")
+                                Text(performance != nil ? "2020-08-03 14:00" : "暂无")
                                     .font(Font.caption.weight(.semibold))
                                     .foregroundColor(Color.white.opacity(0.6))
                                     .padding(.bottom, 12)
@@ -119,7 +98,7 @@ struct RecommandCard: View {
                             
                             Spacer()
                             
-                            RingView(percentage: (grade ?? 0) / 100)
+                            RingView(percentage: (performance ?? 0) / 100)
                         }
                         .padding(.horizontal)
                     )
@@ -128,6 +107,7 @@ struct RecommandCard: View {
             .padding(.vertical)
         }
         .frame(width: cardWidth, height: cardHeight)
+        .responsiveButton(action: nil)
     }
 }
 

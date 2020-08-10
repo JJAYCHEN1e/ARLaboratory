@@ -36,7 +36,7 @@ fileprivate class CustomResponsiveButton: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate.endPessing()
         if let view = hitTest(touches.first!.location(in: self), with: nil), view == self {
-            
+            delegate.tapped()
         }
     }
 }
@@ -108,6 +108,6 @@ fileprivate struct responsiveButtonModifier: ViewModifier {
 
 extension View {
     func responsiveButton(action: (() -> ())?) -> some View {
-        self.modifier(responsiveButtonModifier(action: nil))
+        self.modifier(responsiveButtonModifier(action: action))
     }
 }

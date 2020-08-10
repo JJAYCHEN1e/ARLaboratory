@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63061C6D24E119F1001DEB43 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63061C6C24E119F1001DEB43 /* SubjectView.swift */; };
+		63061C6F24E120C9001DEB43 /* SubjectHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63061C6E24E120C9001DEB43 /* SubjectHeadView.swift */; };
+		63061C7224E1507B001DEB43 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63061C7124E1507B001DEB43 /* Subject.swift */; };
+		63061C7424E15095001DEB43 /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63061C7324E15095001DEB43 /* Lab.swift */; };
 		633707B824DB14C1008256FC /* ARLaboratoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633707B724DB14C1008256FC /* ARLaboratoryApp.swift */; };
 		633707BA24DB14C1008256FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633707B924DB14C1008256FC /* ContentView.swift */; };
 		633707BC24DB14C2008256FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BB24DB14C2008256FC /* Assets.xcassets */; };
@@ -25,6 +29,10 @@
 
 /* Begin PBXFileReference section */
 		21527092A38F7F8C12FFD701 /* Pods-ARLaboratory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARLaboratory.debug.xcconfig"; path = "Target Support Files/Pods-ARLaboratory/Pods-ARLaboratory.debug.xcconfig"; sourceTree = "<group>"; };
+		63061C6C24E119F1001DEB43 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
+		63061C6E24E120C9001DEB43 /* SubjectHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectHeadView.swift; sourceTree = "<group>"; };
+		63061C7124E1507B001DEB43 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		63061C7324E15095001DEB43 /* Lab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
 		633707B424DB14C1008256FC /* ARLaboratory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARLaboratory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633707B724DB14C1008256FC /* ARLaboratoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARLaboratoryApp.swift; sourceTree = "<group>"; };
 		633707B924DB14C1008256FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +97,15 @@
 			path = "Helper View";
 			sourceTree = "<group>";
 		};
+		63061C7024E1506A001DEB43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63061C7124E1507B001DEB43 /* Subject.swift */,
+				63061C7324E15095001DEB43 /* Lab.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		633707AB24DB14C1008256FC = {
 			isa = PBXGroup;
 			children = (
@@ -139,12 +156,15 @@
 		639E6E9924DE421A00073784 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63061C7024E1506A001DEB43 /* Model */,
 				63061C6524DFE786001DEB43 /* Helper View */,
 				63061C6424DFE77A001DEB43 /* Modifier */,
 				639E6EA224DE60E300073784 /* ColumnHeadView.swift */,
 				6370B85724DE8F5E00DC43E5 /* RecommandColumn.swift */,
 				6370B85924DEE01100DC43E5 /* SubjectColumn.swift */,
 				6370B85B24DF926F00DC43E5 /* FavoriteColumn.swift */,
+				63061C6C24E119F1001DEB43 /* SubjectView.swift */,
+				63061C6E24E120C9001DEB43 /* SubjectHeadView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,9 +300,13 @@
 				6370B85824DE8F5E00DC43E5 /* RecommandColumn.swift in Sources */,
 				6370B85A24DEE01100DC43E5 /* SubjectColumn.swift in Sources */,
 				6370B85C24DF926F00DC43E5 /* FavoriteColumn.swift in Sources */,
+				63061C7224E1507B001DEB43 /* Subject.swift in Sources */,
+				63061C6D24E119F1001DEB43 /* SubjectView.swift in Sources */,
+				63061C7424E15095001DEB43 /* Lab.swift in Sources */,
 				639E6EA124DE57C300073784 /* Constants+Color.swift in Sources */,
 				6370B86224DFDBF700DC43E5 /* ResponsiveButton.swift in Sources */,
 				633707B824DB14C1008256FC /* ARLaboratoryApp.swift in Sources */,
+				63061C6F24E120C9001DEB43 /* SubjectHeadView.swift in Sources */,
 				639E6E9824DDB23000073784 /* Constants+Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

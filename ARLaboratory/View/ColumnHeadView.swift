@@ -46,7 +46,6 @@ struct ColumnHeadView: View {
                 }
             }
         }
-        
     }
 }
 
