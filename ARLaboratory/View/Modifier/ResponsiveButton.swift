@@ -87,7 +87,7 @@ fileprivate struct CustomButtonView: UIViewRepresentable {
     }
 }
 
-fileprivate struct responsiveButtonModifier: ViewModifier {
+fileprivate struct ResponsiveButtonModifier: ViewModifier {
     @State private var pressing: Bool = false
     
     let action: (() -> ())?
@@ -108,6 +108,6 @@ fileprivate struct responsiveButtonModifier: ViewModifier {
 
 extension View {
     func responsiveButton(action: (() -> ())?) -> some View {
-        self.modifier(responsiveButtonModifier(action: action))
+        self.modifier(ResponsiveButtonModifier(action: action))
     }
 }

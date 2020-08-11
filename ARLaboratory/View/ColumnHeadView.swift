@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct ColumnHeadView: View {
+struct ColumnHeadView<Destination: View>: View {
     var title: String
     var subtitle: String
+    var destination: Destination
     
     var body: some View {
         HStack(alignment: .bottom) {
@@ -27,9 +28,7 @@ struct ColumnHeadView: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Button {
-                    
-                } label: {
+                NavigationLink(destination: destination) {
                     VStack(alignment: .trailing) {
                         Image(systemName: "chevron.right")
                             .font(Font.body.bold())
@@ -51,6 +50,6 @@ struct ColumnHeadView: View {
 
 struct ColumnHeadView_Previews: PreviewProvider {
     static var previews: some View {
-        ColumnHeadView(title: "今日推荐", subtitle: "Today")
+        ColumnHeadView(title: "今日推荐", subtitle: "Today", destination: EmptyView())
     }
 }

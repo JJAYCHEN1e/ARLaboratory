@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SubjectView: View {
     @State private var selectedSubject = Subject.all
-    @Binding var show: Bool
     
     let cardMinimenSize: CGFloat = screenWidth < 400 ? 135 : 220
     let cardSpacing: CGFloat = screenWidth < 400 ? 16 : 24
@@ -17,19 +16,11 @@ struct SubjectView: View {
     var body: some View {
         ZStack {
             Rectangle()
-            .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9529411765, blue: 0.9607843137, alpha: 0.5)))
-            .edgesIgnoringSafeArea(.all)
-
+                .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9529411765, blue: 0.9607843137, alpha: 0.5)))
+                .edgesIgnoringSafeArea(.all)
+            
             ScrollView {
                 VStack(alignment: .center) {
-                    Picker("Subject", selection: $selectedSubject) {
-                        ForEach(Subject.allCases) { subject in
-                            Text(subject.description()).tag(subject)
-                        }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .fixedSize()
-                    
                     ForEach(Subject.allCases) { subject in
                         if subject != .all && (selectedSubject == .all || selectedSubject == subject) {
                             SubjectHeadView(title: subject.description(), subtitle: subject.rawValue.capitalized)
@@ -37,9 +28,6 @@ struct SubjectView: View {
                                 ForEach(labs.filter(with: subject), id: \.title) {
                                     lab in
                                     SubjectLabCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient)
-                                        .onTapGesture {
-                                            show.toggle()
-                                        }
                                 }
                             }
                             .padding(.vertical)
@@ -47,6 +35,20 @@ struct SubjectView: View {
                     }
                 }
                 .padding()
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            // SwiftUI 2
+            // https://stackoverflow.com/questions/60031681/adding-segmented-style-picker-to-swiftuis-navigationview/60510555#60510555
+            ToolbarItem(placement: .principal) {
+                Picker("Subject", selection: $selectedSubject) {
+                    ForEach(Subject.allCases) { subject in
+                        Text(subject.description()).tag(subject)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .fixedSize()
             }
         }
     }
@@ -110,6 +112,6 @@ fileprivate struct SubjectLabCard: View {
 
 struct SubjectView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectView(show: .constant(false))
+        SubjectView()
     }
 }
