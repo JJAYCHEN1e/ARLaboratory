@@ -68,7 +68,7 @@ struct FavoriteCard: View {
             
         }
         .frame(idealWidth: cardWidth, maxWidth: cardWidth, idealHeight: cardHeight, maxHeight: cardHeight)
-        .responsiveButton(action: nil)
+        .buttonStyle(ResponsiveButtonStyle())
     }
 }
 

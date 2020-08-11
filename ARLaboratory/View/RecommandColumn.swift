@@ -93,7 +93,6 @@ struct RecommandCard: View {
             .padding()
         }
         .frame(width: cardWidth, height: cardHeight)
-        .responsiveButton(action: nil)
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubjectView: View {
-    @State private var selectedSubject = Subject.all
+    @State public var selectedSubject = Subject.all
     
     let cardMinimenSize: CGFloat = screenWidth < 400 ? 135 : 220
     let cardSpacing: CGFloat = screenWidth < 400 ? 16 : 24
@@ -106,7 +106,7 @@ fileprivate struct SubjectLabCard: View {
             }
         }
         .aspectRatio(1, contentMode: .fill)
-        .responsiveButton(action: nil)
+        .buttonStyle(ResponsiveButtonStyle())
     }
 }
 

@@ -12,10 +12,13 @@ struct SubjectColumn: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 24) {
                 SubjectCard(title: "物理", subtitle: "Physics", description: "包含初高中物理学科中的力学、光学、电磁学等各方向的实验。", numberOfLabs: 5, illustrationImage: "subject_physics_illustration")
+                    .navigationLinkWithResponsiveButtonStype(desination: SubjectView(selectedSubject: .physics))
                 
                 SubjectCard(title: "化学", subtitle: "Chemistry", description: "包含初高中化学学科中微观、宏观，有机、无机等各方向的实验。", numberOfLabs: 2, illustrationImage: "subject_chemistry_illustration")
+                    .navigationLinkWithResponsiveButtonStype(desination: SubjectView(selectedSubject: .chemistry))
                 
                 SubjectCard(title: "生物", subtitle: "Biology", description: "包含初高中生物学科的分子与细胞、遗传与进化、稳态与环境等方向的实验。", numberOfLabs: 5, illustrationImage: "subject_biology_illustration")
+                    .navigationLinkWithResponsiveButtonStype(desination: SubjectView(selectedSubject: .biology))
             }
             .padding(.horizontal)
             .padding(.vertical, 28)
@@ -81,7 +84,6 @@ struct SubjectCard: View {
         }
         .frame(width: cardWidth, height: cardHeight)
         .foregroundColor(.white)
-        .responsiveButton(action: nil)
     }
 }
 
