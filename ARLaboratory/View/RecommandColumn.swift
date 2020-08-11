@@ -7,19 +7,7 @@
 
 import SwiftUI
 
-struct MyButtonStyle: PrimitiveButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration
-            .label
-            .onLongPressGesture(
-                minimumDuration: 0,
-                perform: { print("123") }
-            )
-    }
-}
-
 struct RecommandColumn: View {
-    var illustration: Namespace.ID
     
     var body: some View {
         ZStack {
@@ -55,7 +43,6 @@ struct RecommandCard: View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 20)
                 .fill(linearGradient)
-                .frame(width: cardWidth, height: cardHeight)
                 .shadow(color: Color.white.opacity(0.05), radius:3, x:0, y:1)
                 .shadow(color: Color(#colorLiteral(red: 0.6156862745, green: 0.6156862745, blue: 0.8823529412, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
             
@@ -68,6 +55,7 @@ struct RecommandCard: View {
                 Text("\(title)")
                     .font(Font.system(size: 26).weight(.semibold))
                     .foregroundColor(Color.white)
+                    .minimumScaleFactor(0.5)
                 
                 Spacer()
                 
@@ -88,12 +76,10 @@ struct RecommandCard: View {
                                 Text("自我测验成绩")
                                     .font(Font.subheadline.weight(.semibold))
                                     .foregroundColor(.white)
-                                    .padding(.top, 12)
                                 Spacer()
                                 Text(performance != nil ? "2020-08-03 14:00" : "暂无")
                                     .font(Font.caption.weight(.semibold))
                                     .foregroundColor(Color.white.opacity(0.6))
-                                    .padding(.bottom, 12)
                             }
                             
                             Spacer()
@@ -101,10 +87,10 @@ struct RecommandCard: View {
                             RingView(percentage: (performance ?? 0) / 100)
                         }
                         .padding(.horizontal)
+                        .padding(.vertical, 8)
                     )
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical)
+            .padding()
         }
         .frame(width: cardWidth, height: cardHeight)
         .responsiveButton(action: nil)
@@ -134,5 +120,11 @@ fileprivate struct RingView: View {
                 .font(.subheadline)
                 .fontWeight(.bold)
         }
+    }
+}
+
+struct RecommandColumn_Previews: PreviewProvider {
+    static var previews: some View {
+        RecommandColumn()
     }
 }

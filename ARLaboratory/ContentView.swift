@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Namespace private var illustration
     @State private var flag = false
     @State private var show = false
     
@@ -26,16 +25,18 @@ struct ContentView: View {
                             .onTapGesture(count: 1, perform: {
                                 withAnimation(.spring(), { flag.toggle() })
                             })
-                        RecommandColumn(illustration: illustration)
+                        RecommandColumn()
                         
                         
                         NavigationLink(
-                            destination: SubjectView(show: $show),
+                            destination: SubjectView(show: $show)
+                                .navigationBarHidden(true),
                             isActive: $show,
                             label: {
                                 ColumnHeadView(title: "学科分类", subtitle: "All")
                                     .padding(.horizontal, 24)
                             })
+                            .navigationBarHidden(true)
                         SubjectColumn()
                         
                         ColumnHeadView(title: "最爱实验", subtitle: "My")

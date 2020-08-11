@@ -49,7 +49,6 @@ struct SubjectView: View {
                 .padding()
             }
         }
-        .navigationBarHidden(true)
     }
 }
 
