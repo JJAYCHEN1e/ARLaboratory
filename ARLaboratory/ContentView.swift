@@ -8,29 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Namespace private var illustration
+    @State private var flag = false
+    @State private var show = false
+    
     var body: some View {
-//        CounterView()
-        ZStack {
-            Rectangle()
-            .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9529411765, blue: 0.9607843137, alpha: 0.5)))
-            .edgesIgnoringSafeArea(.all)
-
-            ScrollView {
-                VStack(alignment: .leading) {
-                    ColumnHeadView(title: "今日推荐", subtitle: "Today")
-                        .padding(.horizontal)
-                    RecommandColumn()
-
-                    ColumnHeadView(title: "学科分类", subtitle: "All")
-                        .padding(.horizontal, 24)
-                    SubjectColumn()
-
-                    ColumnHeadView(title: "最爱实验", subtitle: "My")
-                        .padding(.horizontal, 24)
-                    FavoriteColumn()
+        NavigationView {
+            ZStack {
+                Rectangle()
+                    .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9529411765, blue: 0.9607843137, alpha: 0.5)))
+                    .edgesIgnoringSafeArea(.all)
+                
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        ColumnHeadView(title: "今日推荐", subtitle: "Today")
+                            .padding(.horizontal)
+                            .onTapGesture(count: 1, perform: {
+                                withAnimation(.spring(), { flag.toggle() })
+                            })
+                        RecommandColumn(illustration: illustration)
+                        
+                        
+                        NavigationLink(
+                            destination: SubjectView(show: $show),
+                            isActive: $show,
+                            label: {
+                                ColumnHeadView(title: "学科分类", subtitle: "All")
+                                    .padding(.horizontal, 24)
+                            })
+                        SubjectColumn()
+                        
+                        ColumnHeadView(title: "最爱实验", subtitle: "My")
+                            .padding(.horizontal, 24)
+                        FavoriteColumn()
+                    }
                 }
             }
+            .navigationBarHidden(true)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
