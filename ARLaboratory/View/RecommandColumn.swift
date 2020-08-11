@@ -10,18 +10,16 @@ import SwiftUI
 struct RecommandColumn: View {
     
     var body: some View {
-        ZStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 24) {
-                    ForEach(labs, id: \.title) {
-                        lab in
-                        RecommandCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient, performance: lab.performance ?? 0.0)
-                    }
-                    
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 24) {
+                ForEach(labs, id: \.title) {
+                    lab in
+                    RecommandCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient, performance: lab.performance ?? 0.0)
                 }
-                .padding(.horizontal)
-                .padding(.vertical, 28)
             }
+            .padding(.horizontal)
+            .padding(.top)
+            .padding(.bottom, 24)
         }
     }
 }

@@ -30,9 +30,9 @@ struct SubjectView: View {
                                     SubjectLabCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient)
                                 }
                             }
-                            .padding(.vertical)
                         }
                     }
+                    .padding(.bottom)
                 }
                 .padding()
             }

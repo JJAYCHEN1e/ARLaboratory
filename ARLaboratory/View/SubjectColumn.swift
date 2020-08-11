@@ -21,7 +21,8 @@ struct SubjectColumn: View {
                     .navigationLinkWithResponsiveButtonStype(desination: SubjectView(selectedSubject: .biology))
             }
             .padding(.horizontal)
-            .padding(.vertical, 28)
+            .padding(.top)
+            .padding(.bottom, 24)
         }
     }
 }

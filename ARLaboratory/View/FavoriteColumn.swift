@@ -18,7 +18,8 @@ struct FavoriteColumn: View {
                 FavoriteCard(title: "化学分子\n晶体模型展示", subtitle: "高中化学", illustrationImage: "illustrations_cell")
             }
             .padding(.horizontal)
-            .padding(.vertical, 28)
+            .padding(.top)
+            .padding(.bottom, 24)
         }
     }
 }
