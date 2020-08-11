@@ -15,22 +15,23 @@ struct ContentView: View {
                 Rectangle()
                     .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9529411765, blue: 0.9607843137, alpha: 0.5)))
                     .edgesIgnoringSafeArea(.all)
-                
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
-                        ColumnHeadView(title: "今日推荐", subtitle: "Today", destination: EmptyView())
-                            .padding(.horizontal)
-                        RecommandColumn()
-                        
-                        ColumnHeadView(title: "学科分类", subtitle: "All", destination: SubjectView())
-                            .padding(.horizontal, 24)
-                        SubjectColumn()
-                        
-                        ColumnHeadView(title: "最爱实验", subtitle: "My", destination: EmptyView())
-                            .padding(.horizontal, 24)
-                        FavoriteColumn()
-                    }
-                }
+                    .overlay(
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 0) {
+                                ColumnHeadView(title: "今日推荐", subtitle: "Today", destination: EmptyView())
+                                    .padding(.horizontal)
+                                RecommandColumn()
+                                
+                                ColumnHeadView(title: "学科分类", subtitle: "All", destination: SubjectView())
+                                    .padding(.horizontal, 24)
+                                SubjectColumn()
+                                
+                                ColumnHeadView(title: "最爱实验", subtitle: "My", destination: EmptyView())
+                                    .padding(.horizontal, 24)
+                                FavoriteColumn()
+                            }
+                        }
+                    )
             }
             .navigationBarHidden(true)
         }
