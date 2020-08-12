@@ -41,8 +41,13 @@ struct LatexTextView: View {
     }
     
     var body: some View {
-        InnerLatexTextView(text: text, fontSize: fontSize, fontColor: fontColor, width: $width, height: $height)
-            .frame(width: width ?? nil, height: height ?? nil)
+        ZStack {
+            InnerLatexTextView(text: text, fontSize: fontSize, fontColor: fontColor, width: $width, height: $height)
+                .frame(width: width ?? nil, height: height ?? nil)
+            Text(" ")
+                .font(.system(size: fontSize))
+                .opacity(0)
+        }
     }
 }
 
@@ -172,6 +177,53 @@ fileprivate extension String {
         }
         catch {
             return []
+        }
+    }
+}
+
+struct LatexTextView_Previews: PreviewProvider {
+    static var previews: some View {
+        ScrollView {
+            VStack(spacing: 0) {
+                LabIntroHeadView(lab: labs.first!)
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("实验目标")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.primaryColor)
+                            .padding(.vertical, 12)
+                            .padding(.leading, 60)
+                            .padding(.trailing, 24)
+                            .background(
+                                Capsule()
+                                    .foregroundColor(Color(#colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 1, alpha: 1)))
+                                    
+                                
+                            )
+                            .overlay(
+                                HStack {
+                                    Circle()
+                                        .frame(width: 40)
+                                        .foregroundColor(Color(#colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.8549019608, alpha: 1)))
+                                        .overlay(
+                                            Text("1")
+                                                .font(.title3)
+                                                .foregroundColor(.white)
+                                        )
+                                    Spacer()
+                                }
+                            )
+                        
+                        LatexTextView(text: "自然界中存在着三大守恒定律，它们分别是动量守恒定律，能量守恒定律以及角动量守恒定律。它们一起成为现代物理学中的三大基本守恒定律。其中，动量守恒定律描述为：在一个系统中，如果没有任何外力做功，那么该系统中各个物体的动量之和一定是守恒的。如果只有两个物体 $m_1$ 和 $m_2$，那么有，在一段时间前后满足：")
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.all, 40)
+                
+                Spacer()
+            }
         }
     }
 }

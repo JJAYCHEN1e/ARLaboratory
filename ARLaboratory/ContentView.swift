@@ -21,14 +21,17 @@ struct ContentView: View {
                                 ColumnHeadView(title: "今日推荐", subtitle: "Today", destination: EmptyView())
                                     .padding(.horizontal)
                                 RecommandColumn()
-                                
+
                                 ColumnHeadView(title: "学科分类", subtitle: "All", destination: SubjectView())
                                     .padding(.horizontal, 24)
                                 SubjectColumn()
-                                
+
                                 ColumnHeadView(title: "最爱实验", subtitle: "My", destination: EmptyView())
                                     .padding(.horizontal, 24)
                                 FavoriteColumn()
+                                
+                                ColumnHeadView(title: "我的导入", subtitle: "Import", destination: EmptyView())
+                                    .padding(.horizontal, 24)
                             }
                         }
                     )
