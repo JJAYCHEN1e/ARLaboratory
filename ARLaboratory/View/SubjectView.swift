@@ -28,6 +28,7 @@ struct SubjectView: View {
                                 ForEach(labs.filter(with: subject), id: \.title) {
                                     lab in
                                     SubjectLabCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient)
+                                        .navigationLinkWithResponsiveButtonStype(desination: LabIntroView(lab: lab))
                                 }
                             }
                         }
