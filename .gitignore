@@ -1,2 +1,5 @@
 Pods/
+ARLaboratory.xcodeproj/xcuserdata/
+ARLaboratory.xcworkspace/xcuserdata/
+ARLaboratory.xcodeproj/project.pbxproj
 Podfile.lock
