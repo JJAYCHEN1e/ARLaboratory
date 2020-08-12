@@ -11,11 +11,11 @@ struct FavoriteColumn: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 24) {
-                FavoriteCard(title: "小球碰撞\n验证动量守恒定律", subtitle: "高中物理", illustrationImage: "illustrations_momentum")
-                
-                FavoriteCard(title: "探究凸透镜\n成像规律", subtitle: "高中物理", illustrationImage: "illustrations_convex")
-                
-                FavoriteCard(title: "化学分子\n晶体模型展示", subtitle: "高中化学", illustrationImage: "illustrations_cell")
+                ForEach(labs, id: \.title) {
+                    lab in
+                    FavoriteCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage)
+                        .navigationLinkWithResponsiveButtonStype(desination: LabIntroView(lab: lab))
+                }
             }
             .padding(.horizontal)
             .padding(.top)

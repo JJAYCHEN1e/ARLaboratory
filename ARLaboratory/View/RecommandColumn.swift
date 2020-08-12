@@ -15,6 +15,7 @@ struct RecommandColumn: View {
                 ForEach(labs, id: \.title) {
                     lab in
                     RecommandCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient, performance: lab.performance ?? 0.0)
+                        .navigationLinkWithResponsiveButtonStype(desination: LabIntroView(lab: lab))
                 }
             }
             .padding(.horizontal)
