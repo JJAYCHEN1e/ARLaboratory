@@ -7,9 +7,16 @@
 
 import SwiftUI
 
+
 struct ProblemCard: View {
     @State var problem : Problem
+    @State var hasPressed : Bool = false
+    @State var chosenIndex : Int = -1
+    @Binding var score : Int
+    @State var tag : Bool = false
     var body: some View {
+        let answerIndex : Int = self.problem.answer
+
             ZStack {
                     VStack {
                         Text("物理的新题目").font(.system(size: 28)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).foregroundColor(Color("primaryColor"))
@@ -31,38 +38,57 @@ struct ProblemCard: View {
                             Spacer()
                         }.padding(.horizontal,50).padding(.top,20).foregroundColor(Color(#colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.4156862745, alpha: 0.8)))
                         ScrollView(.vertical, showsIndicators: true, content: {
-                            ForEach(problem.choices ,id : \.self){
-                                choice in
-                                ChoiceCell(content: choice)
+                            ForEach(problem.choices.indices ,id : \.self){
+                                i in
+                                ChoiceCell(content: problem.choices[i],index: i, selected: !(chosenIndex == -1), isRightAnswer : answerIndex == i,hasPressed: $hasPressed, chosenIndex: $chosenIndex)
                                     .padding(.vertical,2)
+                                    
+                                    
                             }
                             .padding(.horizontal).padding(.vertical,2)
                         }).padding(.horizontal,32).frame(height:252)
                         
                     }.frame(width: 553, height: 625, alignment: .top )
-                Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("继续")
-                        .foregroundColor(.white)
-                        .frame(width: 298, height: 44)
-                        .background(Color(#colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.8549019608, alpha: 1)))
-                        .cornerRadius(12)
-                        .shadow(color: Color(#colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.8549019608, alpha: 1)), radius: 0.5, x: 0, y: 2)
-                        .offset(x: 0, y: 380)
+                VStack {
+                    (hasPressed ? ( chosenIndex == answerIndex ? Text("牛逼 对了") : Text("答错了，下次努力")) : Text(""))
+                        .padding(.bottom,5)
+                    Button(action: {
+                        if(hasPressed && !tag){
+                            self.tag = true
+                            if chosenIndex == answerIndex {
+                                score += 10
+                            }
+                        }
+                        
+                    }) {
+                        Text("下一题")
+                            .foregroundColor(.white)
+                            .frame(width: 298, height: 44)
+                            .background(
+                                
+                                (chosenIndex != -1) ?
+                                Color(#colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.8549019608, alpha: 1)):Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                            .cornerRadius(12)
+                            .shadow(color:  (chosenIndex != -1) ?
+                                        Color(#colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.8549019608, alpha: 1)) : Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)), radius: 0.5, x: 0, y: 2)
+                    }
+                    
+
                 }
-            }
+                .offset(x: 0, y: 360)
+                            }
             .frame(width: 553, height: 769, alignment: .top)
             .cornerRadius(9)
             .background(
                 RoundedRectangle(cornerRadius: 9)
                     .foregroundColor(.white)                            .shadow(color: Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 0.82)), radius: 8, x: 2, y: 2).blur(radius: 0.2))
             
-//            .shadow(color: Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 0.82)), radius: 20, x: 2, y: 2)
         
     }
 }
 
 struct ProblemCard_Previews: PreviewProvider {
     static var previews: some View {
-        ProblemCard(problem: problems[0])
+        ProblemCard(problem: problems[0], score: .constant(0))
     }
 }
