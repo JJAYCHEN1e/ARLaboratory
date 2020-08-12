@@ -18,15 +18,19 @@ struct ContentView: View {
                     .overlay(
                         ScrollView {
                             VStack(alignment: .leading, spacing: 0) {
-                                ColumnHeadView(title: "今日推荐", subtitle: "Today", destination: EmptyView())
+                                ColumnHeadView(title: "今日推荐", subtitle: "Today", destination: SubjectView())
                                     .padding(.horizontal)
                                 RecommandColumn()
-                                
+
                                 ColumnHeadView(title: "学科分类", subtitle: "All", destination: SubjectView())
                                     .padding(.horizontal, 24)
                                 SubjectColumn()
+
+                                ColumnHeadView(title: "最爱实验", subtitle: "My", destination: SubjectView())
+                                    .padding(.horizontal, 24)
+                                FavoriteColumn()
                                 
-                                ColumnHeadView(title: "最爱实验", subtitle: "My", destination: EmptyView())
+                                ColumnHeadView(title: "我的导入", subtitle: "Import", destination: SubjectView())
                                     .padding(.horizontal, 24)
                                 FavoriteColumn()
                             }
