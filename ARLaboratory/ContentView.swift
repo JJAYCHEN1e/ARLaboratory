@@ -40,6 +40,9 @@ struct ContentView: View {
                                 ColumnHeadView(title: "最爱实验", subtitle: "My", destination: SubjectView())
                                     .padding(.horizontal, 24)
                                 FavoriteColumn()
+                                
+                                ColumnHeadView(title: "我的导入", subtitle: "Import", destination: EmptyView())
+                                    .padding(.horizontal, 24)
                             }
                             .opacity(onAppearAnimation ? 0 : 1)
                             .offset(y: onAppearAnimation ? 60 : 0)
