@@ -17,10 +17,10 @@ struct CardViews: View {
             Text(String.init(score))
             Text(String.init(offset))
             ZStack {
-                ProblemCard(problem: problems[0], score: $score).selectModifier(offset: offset+3)
-                ProblemCard(problem: problems[0], score: $score).selectModifier(offset: offset+2)
-                ProblemCard(problem: problems[0], score: $score).selectModifier(offset: offset+1)
-                ProblemCard(problem: problems[0], score: $score).selectModifier(offset: offset)
+                ProblemCard(problem: problems[(0+offset)%4], score: $score).selectModifier(offset: offset+3)
+                ProblemCard(problem: problems[(1+offset)%4], score: $score).selectModifier(offset: offset+2)
+                ProblemCard(problem: problems[(2+offset)%4], score: $score).selectModifier(offset: offset+1)
+                ProblemCard(problem: problems[(3+offset)%4], score: $score).selectModifier(offset: offset)
             }
             Button(action: {
                 offset = offset + 1
@@ -30,6 +30,7 @@ struct CardViews: View {
                     .background(Color(#colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.8549019608, alpha: 1)))
                     .cornerRadius(12)
             }
+            .animation(.easeInOut)
             }
 
             
@@ -40,16 +41,16 @@ struct CardViews: View {
 
 
 extension View{
-    func selectModifier(offset : Int) -> some View{
+    @ViewBuilder func selectModifier(offset : Int) -> some View{
         switch (offset%4) {
         case 0:
-            return self.modifier(firstCard())
+             self.modifier(firstCard())
         case 1:
-            return self.modifier(secondCard())
+             self.modifier(secondCard())
         case 2:
-            return self.modifier(thirdCard())
+             self.modifier(thirdCard())
         default:
-            return self.modifier(candidateCard())
+             self.modifier(candidateCard())
 
         }
             
