@@ -23,17 +23,17 @@ struct ContentView: View {
                                     .padding(.horizontal)
                                 RecommandColumn()
                             }
-                                .opacity(onAppearAnimation ? 0 : 1)
-                                .offset(y: onAppearAnimation ? 100 : 0)
-                                .animation(Animation.easeInOut(duration: 1).delay(0))
+                            .opacity(onAppearAnimation ? 0 : 1)
+                            .offset(y: onAppearAnimation ? 100 : 0)
+                            .animation(Animation.easeInOut(duration: 1).delay(0))
                             
                             Group {
                                 ColumnHeadView(title: "学科分类", subtitle: "All", destination: SubjectView())
                                     .padding(.horizontal, 24)
                                 SubjectColumn()
                             }
-                                .opacity(onAppearAnimation ? 0 : 1)
-                                .offset(y: onAppearAnimation ? 80 : 0)
+                            .opacity(onAppearAnimation ? 0 : 1)
+                            .offset(y: onAppearAnimation ? 80 : 0)
                             .animation(Animation.easeInOut(duration: 0.7).delay(0.3))
                             
                             Group {
@@ -41,17 +41,17 @@ struct ContentView: View {
                                     .padding(.horizontal, 24)
                                 FavoriteColumn()
                             }
-                                .opacity(onAppearAnimation ? 0 : 1)
-                                .offset(y: onAppearAnimation ? 60 : 0)
-                                .animation(Animation.easeInOut(duration: 0.7).delay(0.6))
+                            .opacity(onAppearAnimation ? 0 : 1)
+                            .offset(y: onAppearAnimation ? 60 : 0)
+                            .animation(Animation.easeInOut(duration: 0.7).delay(0.6))
                             
                             Group {
                                 ColumnHeadView(title: "我的导入", subtitle: "Import", destination: SubjectView())
                                     .padding(.horizontal, 24)
                                 ImportColumn()
                             }
-                                .opacity(onAppearAnimation ? 0 : 1)
-                                .offset(y: onAppearAnimation ? 40 : 0)
+                            .opacity(onAppearAnimation ? 0 : 1)
+                            .offset(y: onAppearAnimation ? 40 : 0)
                             .animation(Animation.easeInOut(duration: 0.7).delay(0.8))
                         }
                         .onAppear {
