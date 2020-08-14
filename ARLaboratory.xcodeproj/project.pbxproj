@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		408690F624E634C300465EB8 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408690F524E634C300465EB8 /* ScoreView.swift */; };
 		40D92CB024E39934002BF5D0 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D92CAF24E39934002BF5D0 /* Problem.swift */; };
 		40D92CB524E39944002BF5D0 /* CardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D92CB224E39944002BF5D0 /* CardViews.swift */; };
 		40D92CB624E39944002BF5D0 /* ProblemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D92CB324E39944002BF5D0 /* ProblemCard.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		21527092A38F7F8C12FFD701 /* Pods-ARLaboratory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARLaboratory.debug.xcconfig"; path = "Target Support Files/Pods-ARLaboratory/Pods-ARLaboratory.debug.xcconfig"; sourceTree = "<group>"; };
+		408690F524E634C300465EB8 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		40D92CAF24E39934002BF5D0 /* Problem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		40D92CB224E39944002BF5D0 /* CardViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViews.swift; sourceTree = "<group>"; };
 		40D92CB324E39944002BF5D0 /* ProblemCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemCard.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				40D92CB224E39944002BF5D0 /* CardViews.swift */,
+				408690F524E634C300465EB8 /* ScoreView.swift */,
 				40D92CB324E39944002BF5D0 /* ProblemCard.swift */,
 				40D92CB424E39944002BF5D0 /* ChoiceCell.swift */,
 			);
@@ -357,6 +360,7 @@
 				639E6EA124DE57C300073784 /* Constants+Color.swift in Sources */,
 				63061C7E24E2B0D6001DEB43 /* UINavigationController+Swipe.swift in Sources */,
 				63061C7824E277A1001DEB43 /* Constants+Device.swift in Sources */,
+				408690F624E634C300465EB8 /* ScoreView.swift in Sources */,
 				40D92CB024E39934002BF5D0 /* Problem.swift in Sources */,
 				633707B824DB14C1008256FC /* ARLaboratoryApp.swift in Sources */,
 				63061C6F24E120C9001DEB43 /* SubjectHeadView.swift in Sources */,

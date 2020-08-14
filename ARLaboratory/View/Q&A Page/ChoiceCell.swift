@@ -23,13 +23,14 @@ struct ChoiceCell: View {
    
             HStack {
                     Text(content)
+                        .font(.system(size: 13))
                     Spacer()
                     (hasPressed ? (isRightAnswer ? Image("correct") : selected ? Image("false") : Image("unselected")) : Image("unselected"))
                         .resizable()
-                        .frame(width: 18, height: 18)
+                        .frame(width: 17, height: 17)
                         
                 }
-                .padding()
+                .padding(12)
                 .overlay(
                     RoundedRectangle(cornerRadius: 9)
                             .stroke(
