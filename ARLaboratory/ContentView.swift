@@ -62,10 +62,17 @@ struct ContentView: View {
                                 onAppearAnimation = false
                             }
                         }
+<<<<<<< HEAD
                     }
                 )
                 .navigationTitle("首页")
                 .navigationBarTitleDisplayMode(.inline)
+=======
+                    )
+                CardViews(experimentName: "小球碰撞验证动量守恒定律实验")
+            }
+            .navigationBarHidden(true)
+>>>>>>> 36f40c6bafc4d708d2b8ddc1183b3eec54bb6fff
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

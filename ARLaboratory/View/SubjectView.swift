@@ -30,10 +30,13 @@ struct SubjectView: View {
                                     lab in
                                     SubjectLabCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient)
                                         .navigationLinkWithResponsiveButtonStype(desination: LabIntroView(lab: lab))
+<<<<<<< HEAD
                                         .scaleEffect(onAppearAnimation ? 1.1 : 1)
                                         .animation(.interpolatingSpring(mass: 1.0, stiffness: 150.0, damping: 10, initialVelocity: 0))
                                         .opacity(onAppearAnimation ? 0 : 1)
                                         .animation(.easeOut)
+=======
+>>>>>>> 36f40c6bafc4d708d2b8ddc1183b3eec54bb6fff
                                 }
                             }
                         }
