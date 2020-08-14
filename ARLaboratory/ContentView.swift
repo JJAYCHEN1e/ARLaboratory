@@ -61,7 +61,8 @@ struct ContentView: View {
                         }
                     }
                 )
-                .navigationBarHidden(true)
+                .navigationTitle("首页")
+                .navigationBarTitleDisplayMode(.inline)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
