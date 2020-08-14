@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var onAppearAnimation = true
     
     var body: some View {
         NavigationView {
@@ -16,22 +17,47 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
                 .overlay(
                     ScrollView {
-                        VStack(alignment: .leading, spacing: 0) {
-                            ColumnHeadView(title: "今日推荐", subtitle: "Today", destination: SubjectView())
-                                .padding(.horizontal)
-                            RecommandColumn()
+                        LazyVStack(alignment: .leading, spacing: 0) {
+                            Group {
+                                ColumnHeadView(title: "今日推荐", subtitle: "Today", destination: SubjectView())
+                                    .padding(.horizontal)
+                                RecommandColumn()
+                            }
+                                .opacity(onAppearAnimation ? 0 : 1)
+                                .offset(y: onAppearAnimation ? 100 : 0)
+                                .animation(Animation.easeInOut(duration: 1).delay(0))
                             
-                            ColumnHeadView(title: "学科分类", subtitle: "All", destination: SubjectView())
-                                .padding(.horizontal, 24)
-                            SubjectColumn()
+                            Group {
+                                ColumnHeadView(title: "学科分类", subtitle: "All", destination: SubjectView())
+                                    .padding(.horizontal, 24)
+                                SubjectColumn()
+                            }
+                                .opacity(onAppearAnimation ? 0 : 1)
+                                .offset(y: onAppearAnimation ? 80 : 0)
+                            .animation(Animation.easeInOut(duration: 0.7).delay(0.3))
                             
-                            ColumnHeadView(title: "最爱实验", subtitle: "My", destination: SubjectView())
-                                .padding(.horizontal, 24)
-                            FavoriteColumn()
+                            Group {
+                                ColumnHeadView(title: "最爱实验", subtitle: "My", destination: SubjectView())
+                                    .padding(.horizontal, 24)
+                                FavoriteColumn()
+                            }
+                                .opacity(onAppearAnimation ? 0 : 1)
+                                .offset(y: onAppearAnimation ? 60 : 0)
+                                .animation(Animation.easeInOut(duration: 0.7).delay(0.6))
                             
-                            ColumnHeadView(title: "我的导入", subtitle: "Import", destination: SubjectView())
-                                .padding(.horizontal, 24)
-                            FavoriteColumn()
+                            Group {
+                                ColumnHeadView(title: "我的导入", subtitle: "Import", destination: SubjectView())
+                                    .padding(.horizontal, 24)
+                                ImportColumn()
+                            }
+                                .opacity(onAppearAnimation ? 0 : 1)
+                                .offset(y: onAppearAnimation ? 40 : 0)
+                            .animation(Animation.easeInOut(duration: 0.7).delay(0.8))
+                        }
+                        .onAppear {
+                            DispatchQueue.global().async {
+                                onAppearAnimation = false
+                            }
                         }
                     }
                 )

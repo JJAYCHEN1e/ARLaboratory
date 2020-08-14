@@ -25,6 +25,7 @@
 		633707BA24DB14C1008256FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633707B924DB14C1008256FC /* ContentView.swift */; };
 		633707BC24DB14C2008256FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BB24DB14C2008256FC /* Assets.xcassets */; };
 		633707BF24DB14C2008256FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BE24DB14C2008256FC /* Preview Assets.xcassets */; };
+		6354F5A324E53C62007D4D21 /* ImportColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6354F5A224E53C62007D4D21 /* ImportColumn.swift */; };
 		6370B85824DE8F5E00DC43E5 /* RecommandColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B85724DE8F5E00DC43E5 /* RecommandColumn.swift */; };
 		6370B85A24DEE01100DC43E5 /* SubjectColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B85924DEE01100DC43E5 /* SubjectColumn.swift */; };
 		6370B85C24DF926F00DC43E5 /* FavoriteColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B85B24DF926F00DC43E5 /* FavoriteColumn.swift */; };
@@ -57,6 +58,7 @@
 		633707BB24DB14C2008256FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		633707BE24DB14C2008256FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		633707C024DB14C2008256FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6354F5A224E53C62007D4D21 /* ImportColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportColumn.swift; sourceTree = "<group>"; };
 		6370B85724DE8F5E00DC43E5 /* RecommandColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandColumn.swift; sourceTree = "<group>"; };
 		6370B85924DEE01100DC43E5 /* SubjectColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectColumn.swift; sourceTree = "<group>"; };
 		6370B85B24DF926F00DC43E5 /* FavoriteColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteColumn.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				63061C6C24E119F1001DEB43 /* SubjectView.swift */,
 				63061C6E24E120C9001DEB43 /* SubjectHeadView.swift */,
 				63061C8624E40F0F001DEB43 /* LabIntroView.swift */,
+				6354F5A224E53C62007D4D21 /* ImportColumn.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				63061C6F24E120C9001DEB43 /* SubjectHeadView.swift in Sources */,
 				63061C8424E2BF7F001DEB43 /* NavigationConfigurator.swift in Sources */,
 				40D92CB724E39944002BF5D0 /* ChoiceCell.swift in Sources */,
+				6354F5A324E53C62007D4D21 /* ImportColumn.swift in Sources */,
 				639E6E9824DDB23000073784 /* Constants+Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +494,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ARLaboratory/Preview Content\"";
-				DEVELOPMENT_TEAM = XKUVHTJ3W8;
+				DEVELOPMENT_TEAM = WHS7F725MC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ARLaboratory/Supporting Files/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -513,7 +517,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ARLaboratory/Preview Content\"";
-				DEVELOPMENT_TEAM = XKUVHTJ3W8;
+				DEVELOPMENT_TEAM = WHS7F725MC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ARLaboratory/Supporting Files/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
