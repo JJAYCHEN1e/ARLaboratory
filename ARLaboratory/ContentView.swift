@@ -29,13 +29,14 @@ struct ContentView: View {
                                 ColumnHeadView(title: "最爱实验", subtitle: "My", destination: SubjectView())
                                     .padding(.horizontal, 24)
                                 FavoriteColumn()
-                                
+
                                 ColumnHeadView(title: "我的导入", subtitle: "Import", destination: SubjectView())
                                     .padding(.horizontal, 24)
                                 FavoriteColumn()
                             }
                         }
                     )
+                CardViews(experimentName: "小球碰撞验证动量守恒定律实验")
             }
             .navigationBarHidden(true)
         }
