@@ -14,6 +14,7 @@ struct ScoreView: View {
     @Binding var showScoreCard : Bool
     @Binding var circleAnimationStart : Bool
     @State var twinkle : Bool = false
+    @Binding var showSheet : Bool
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -34,9 +35,6 @@ struct ScoreView: View {
             
             VStack {
                
-
-                
-                
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
                                 Text("答对了")
                                     .font(.system(size : 18))
@@ -141,6 +139,9 @@ struct ScoreView: View {
                         .overlay(Image("close")
                                     .resizable()
                                     .frame(width: 16, height: 16))
+                        .onTapGesture(perform: {
+                            showSheet = false
+                        })
                     Spacer()
                 }
             }
@@ -153,9 +154,7 @@ struct ScoreView: View {
             RoundedRectangle(cornerRadius: 9)
             .foregroundColor(.white)                            .shadow(color: Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 0.82)), radius: 8, x: 2, y: 2).blur(radius: 0.2)
                 )
-//        .onAppear(perform: {
-//
-//        })
+
     }
 }
 
@@ -171,7 +170,7 @@ var dateFormatter : DateFormatter{
 struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
         ScoreView(correctAnswers: .constant(14), experimentName:"小球碰撞验证动量守恒定律ssssssss", countOfProblems: 14, showScoreCard:
-                    .constant(true), circleAnimationStart: .constant(false)
+                    .constant(true), circleAnimationStart: .constant(false), showSheet: .constant(true)
  )
     }
 }

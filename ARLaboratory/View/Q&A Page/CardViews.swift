@@ -30,6 +30,7 @@ struct CardViews: View {
     @State var correctAnswers : Int = 0
     @State var showScoreCard : Bool = false
     @State var circleAnimationStart : Bool = false
+    @Binding var showSheet :  Bool
     var countOfProblems : Int = problems.count
     var body: some View {
         
@@ -37,11 +38,11 @@ struct CardViews: View {
             ZStack {
                 ForEach(problems.indices,id : \.self){ i in
                     let viewTypeInfo = selectViewType(offset: i - offset)
-                    ProblemCard(problemIndex: i, experimentName: experimentName, problem: problems[(i+offset)%countOfProblems], score: $score, offset: $offset, correctAnswer: $correctAnswers, showScore: $showScoreCard, circleAnimationStart: $circleAnimationStart, countOfProblems: countOfProblems)
+                    ProblemCard(problemIndex: i, experimentName: experimentName, problem: problems[(i+offset)%countOfProblems], score: $score, offset: $offset, correctAnswer: $correctAnswers, showScore: $showScoreCard, circleAnimationStart: $circleAnimationStart, showSheet: $showSheet, countOfProblems: countOfProblems)
                             .cardModifier(with: viewTypeInfo)
                    
                 }
-                ScoreView(correctAnswers: $correctAnswers, experimentName: experimentName, countOfProblems: countOfProblems, showScoreCard: $showScoreCard, circleAnimationStart: $circleAnimationStart)
+                ScoreView(correctAnswers: $correctAnswers, experimentName: experimentName, countOfProblems: countOfProblems, showScoreCard: $showScoreCard, circleAnimationStart: $circleAnimationStart, showSheet: $showSheet)
                     .offset(y: showScoreCard ? 0 : 100)
 //                    .scaleEffect(x: showScoreCard ? 1 : 0.79, y: showScoreCard ? 1 : 0.8, anchor: .center)
                     .opacity(showScoreCard ? 1 : 0.01)
@@ -92,7 +93,7 @@ let candidateBig = ViewTypeInfo(scaleX: 1.1, scaleY: 1.1, offsetX: -50, opacity:
 
 struct CardViews_Previews: PreviewProvider {
     static var previews: some View {
-        CardViews( experimentName: "小球碰撞验证动量守恒定律")
+        CardViews( experimentName: "小球碰撞验证动量守恒定律", showSheet: .constant(true))
     }
 }
 

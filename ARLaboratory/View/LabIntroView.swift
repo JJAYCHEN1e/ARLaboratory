@@ -9,83 +9,97 @@ import SwiftUI
 
 struct LabIntroView: View {
     @State private var bottomBarOffset: CGFloat = 100.0
-    
+//    @State private var bottomBarOffset: CGFloat = 0
+    @State private var showSheet : Bool =  false
     var lab: Lab
     var body: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                LabIntroHeadView(lab: lab)
-                
-                HStack {
-                    VStack {
-                        LabTarget()
-                            .padding(.top)
+        ZStack {
+            ScrollView {
+                VStack(spacing: 0) {
+                    LabIntroHeadView(lab: lab)
+                    
+                    HStack {
+                        VStack {
+                            LabTarget()
+                                .padding(.top)
+                            
+                            LabStep()
+                                .padding(.top)
+                        }
                         
-                        LabStep()
-                            .padding(.top)
+                        Spacer()
                     }
+                    .padding(.horizontal, 40)
+                    .padding(.vertical)
                     
                     Spacer()
                 }
-                .padding(.horizontal, 40)
-                .padding(.vertical)
-                
-                Spacer()
             }
-        }
-        .overlay(
-            VStack {
-                Spacer()
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(Color(#colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 0.95)))
-                    .frame(width: 500, height: 70)
-                    .shadow(color: Color.black
-                                .opacity(0.05), radius: 1, x: 0, y: 1)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0.0, y: 10)
-                    .overlay(
-                        HStack {
-                            RoundedRectangle(cornerRadius: 15)
-                                .foregroundColor(Color(#colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 1, alpha: 1)))
-                                .aspectRatio(1, contentMode: .fit)
-                                .overlay(Image("icon_challenge").resizable().aspectRatio(contentMode: .fit)
-                                            
-                                            .padding(.all, 5)
-                                )
-                            VStack(alignment: .leading) {
-                                Text("答题挑战")
+            .onTapGesture(perform: {
+                showSheet = false
+            })
+            .overlay(
+                VStack {
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(Color(#colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 0.95)))
+                        .frame(width: 500, height: 70)
+                        .shadow(color: Color.black
+                                    .opacity(0.05), radius: 1, x: 0, y: 1)
+                        .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0.0, y: 10)
+                        .overlay(
+                            HStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundColor(Color(#colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 1, alpha: 1)))
+                                    .aspectRatio(1, contentMode: .fit)
+                                    .overlay(Image("icon_challenge").resizable().aspectRatio(contentMode: .fit)
+                                                
+                                                .padding(.all, 5)
+                                    )
+                                VStack(alignment: .leading) {
+                                    Text("答题挑战")
+                                        .foregroundColor(.primaryColor)
+                                        .font(.system(size: 18, weight: .bold))
+                                    Text("接受挑战吧！")
+                                        .foregroundColor(Color(#colorLiteral(red: 0.4039215686, green: 0.4039215686, blue: 0.4039215686, alpha: 1)))
+                                }
+                                .padding(.horizontal, 5)
+                                Spacer()
+                                Text("挑战")
                                     .foregroundColor(.primaryColor)
-                                    .font(.system(size: 18, weight: .bold))
-                                Text("接受挑战吧！")
-                                    .foregroundColor(Color(#colorLiteral(red: 0.4039215686, green: 0.4039215686, blue: 0.4039215686, alpha: 1)))
+                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 20)
+                                    .background(
+                                        Capsule()
+                                            .foregroundColor(Color(#colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)))
+                                    )
                             }
-                            .padding(.horizontal, 5)
-                            Spacer()
-                            Text("挑战")
-                                .foregroundColor(.primaryColor)
-                                .padding(.vertical, 5)
-                                .padding(.horizontal, 20)
-                                .background(
-                                    Capsule()
-                                        .foregroundColor(Color(#colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)))
-                                )
+                            .onTapGesture(perform: {
+                                showSheet.toggle()
+                            })
+                           
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 10)
+                        )
+                }
+                .padding(.bottom, 24)
+                .offset(x: 0, y: bottomBarOffset)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        withAnimation(.spring()) {
+                            bottomBarOffset = 0
                         }
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 10)
-                    )
-            }
-            .padding(.bottom, 24)
-            .offset(x: 0, y: bottomBarOffset)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    withAnimation(.spring()) {
-                        bottomBarOffset = 0
                     }
                 }
-            }
-            , alignment: .bottom)
-        .background(Color(#colorLiteral(red: 0.9490196078, green: 0.9529411765, blue: 0.9607843137, alpha: 0.5)))
-        .navigationTitle(lab.rawTitle)
-        .navigationBarTitleDisplayMode(.inline)
+                , alignment: .bottom)
+            .background(Color(#colorLiteral(red: 0.9490196078, green: 0.9529411765, blue: 0.9607843137, alpha: 0.5)))
+            .navigationTitle(lab.rawTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            
+            
+            CardViews( experimentName: lab.subtitle, showSheet: $showSheet)
+                .offset(y : showSheet ? 0 : 1000)
+        }
     }
 }
 

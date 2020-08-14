@@ -25,9 +25,22 @@ struct ChoiceCell: View {
                     Text(content)
                         .font(.system(size: 13))
                     Spacer()
-                    (hasPressed ? (isRightAnswer ? Image("correct") : selected ? Image("false") : Image("unselected")) : Image("unselected"))
+//                    (hasPressed ? (isRightAnswer ? Image("correct") : selected ? Image("false") : Image("unselected")) : Image("unselected"))
+                Image("unselected")
                         .resizable()
                         .frame(width: 17, height: 17)
+                    .overlay(
+                        ZStack{
+                            Image("correct")
+                                .resizable()
+                                .frame(width: 17, height: 17)
+                                .opacity(hasPressed && isRightAnswer ? 1 : 0)
+                            Image("false")
+                                .resizable()
+                                .frame(width: 17, height: 17)
+                                .opacity(selected && !isRightAnswer ? 1 : 0)
+                        }
+                    )
                         
                 }
                 .padding(12)
@@ -35,8 +48,11 @@ struct ChoiceCell: View {
                     RoundedRectangle(cornerRadius: 9)
                             .stroke(
                                 (hasPressed ? (isRightAnswer ? Color(#colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.8549019608, alpha: 1)) : selected ? Color(#colorLiteral(red: 0.8745098039, green: 0.5019607843, blue: 0.7450980392, alpha: 1)) : Color(#colorLiteral(red: 0.8352941176, green: 0.8352941176, blue: 0.9647058824, alpha: 1))) : Color(#colorLiteral(red: 0.8352941176, green: 0.8352941176, blue: 0.9647058824, alpha: 1))),lineWidth: 2.5)
+                       
             )
             .background(Color.white)
+            .animation(Animation.easeInOut.delay( !selected&&isRightAnswer ? 0.5 : 0 ))
+        
             .onTapGesture{
                 print("1")
                 withAnimation(){
@@ -49,7 +65,6 @@ struct ChoiceCell: View {
                     
                 }
             }
-        
            
            
 

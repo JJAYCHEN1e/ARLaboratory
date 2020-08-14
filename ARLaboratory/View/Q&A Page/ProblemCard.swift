@@ -20,6 +20,7 @@ struct ProblemCard: View {
     @Binding var correctAnswer : Int
     @Binding var showScore : Bool
     @Binding var circleAnimationStart : Bool
+    @Binding var showSheet : Bool
     var countOfProblems : Int
     var body: some View {
         let answerIndex : Int = self.problem.answer
@@ -34,6 +35,9 @@ struct ProblemCard: View {
                         .overlay(Image("close")
                                     .resizable()
                                     .frame(width: 16, height: 16))
+                        .onTapGesture(perform: {
+                            showSheet = false
+                        })
                     Spacer()
                 }
             }
@@ -41,11 +45,6 @@ struct ProblemCard: View {
             .padding(.top , 22)
             .zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
             ZStack {
-                    
-                
-               
-                    
-                    
                         VStack {
                             ZStack {
                                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
@@ -176,6 +175,6 @@ struct ProblemCard: View {
 
 struct ProblemCard_Previews: PreviewProvider {
     static var previews: some View {
-        ProblemCard(problemIndex: 13, experimentName: "小球碰撞验证动量守恒定律", problem: problems[0], score: .constant(0), offset: .constant(0), correctAnswer: .constant(0), showScore: .constant(false), circleAnimationStart: .constant(false), countOfProblems: 14)
+        ProblemCard(problemIndex: 13, experimentName: "小球碰撞验证动量守恒定律", problem: problems[0], score: .constant(0), offset: .constant(0), correctAnswer: .constant(0), showScore: .constant(false), circleAnimationStart: .constant(false), showSheet: .constant(true), countOfProblems: 14)
     }
 }

@@ -31,14 +31,13 @@ struct NewImportCard: View {
                     .foregroundColor(Color(#colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)))
             )
             .overlay(
-                ZStack {
+                VStack(spacing: 0) {
                     Image(systemName: "plus.circle.fill")
                         .font(.system(size: 44))
                     VStack {
-                        Spacer()
                         Text("导入场景")
                             .font(.system(size: 16, weight: .medium))
-                            .padding()
+                            .padding(.top, 5)
                     }
                     
                 }
