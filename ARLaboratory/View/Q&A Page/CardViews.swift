@@ -27,21 +27,34 @@ struct CardViews: View {
     @State var score : Int = 0
     @State var offset : Int = 0
     @State var experimentName : String
+    @State var correctAnswers : Int = 0
+    @State var showScoreCard : Bool = false
+    @State var circleAnimationStart : Bool = false
+    var countOfProblems : Int = problems.count
     var body: some View {
         
         VStack {
-            Text(String.init(score))
-            Text(String.init(offset))
             ZStack {
                 ForEach(problems.indices,id : \.self){ i in
                     let viewTypeInfo = selectViewType(offset: i - offset)
-                    ProblemCard(problemIndex: i, experimentName: experimentName, problem: problems[(i+offset)%4], score: $score, offset: $offset)
-                        .scaleEffect(x: CGFloat(viewTypeInfo.scaleX), y: CGFloat(viewTypeInfo.scaleY), anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .offset(x: CGFloat(viewTypeInfo.offsetX), y: 0)
-                        .opacity(viewTypeInfo.opacity)
-                        .zIndex(Double(viewTypeInfo.zIndex))
+                    ProblemCard(problemIndex: i, experimentName: experimentName, problem: problems[(i+offset)%countOfProblems], score: $score, offset: $offset, correctAnswer: $correctAnswers, showScore: $showScoreCard, circleAnimationStart: $circleAnimationStart, countOfProblems: countOfProblems)
+                            .cardModifier(with: viewTypeInfo)
+                   
                 }
+                ScoreView(correctAnswers: $correctAnswers, experimentName: experimentName, countOfProblems: countOfProblems, showScoreCard: $showScoreCard, circleAnimationStart: $circleAnimationStart)
+                    .offset(y: showScoreCard ? 0 : 100)
+//                    .scaleEffect(x: showScoreCard ? 1 : 0.79, y: showScoreCard ? 1 : 0.8, anchor: .center)
+                    .opacity(showScoreCard ? 1 : 0.01)
+                    .zIndex(2)
+                    .animation(
+                        Animation
+                            .easeInOut(duration: 0.5)
+//                            .spring(response: 0.1, dampingFraction: 0.5, blendDuration: 1)
+                            )
+                    
+                    
             }
+
            
             }
         .animation(.easeInOut)
@@ -83,3 +96,21 @@ struct CardViews_Previews: PreviewProvider {
     }
 }
 
+
+struct cardModi : ViewModifier{
+    var viewTypeInfo : ViewTypeInfo
+    func body(content : Content) -> some View {
+        content
+            .scaleEffect(x: CGFloat(viewTypeInfo.scaleX), y: CGFloat(viewTypeInfo.scaleY), anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .offset(x: CGFloat(viewTypeInfo.offsetX), y: 0)
+            .opacity(viewTypeInfo.opacity)
+            .zIndex(Double(viewTypeInfo.zIndex))
+    }
+}
+
+extension View {
+    func cardModifier(with viewTypeInfo : ViewTypeInfo)-> some View{
+        return self.modifier(
+        cardModi(viewTypeInfo: viewTypeInfo))
+    }
+}

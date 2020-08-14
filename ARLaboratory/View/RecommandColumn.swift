@@ -71,22 +71,22 @@ struct RecommandCard: View {
                     .frame(height: 60)
                     .overlay(
                         HStack {
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .leading,spacing : 0) {
                                 Text("自我测验成绩")
                                     .font(Font.subheadline.weight(.semibold))
                                     .foregroundColor(.white)
-                                Spacer()
+                                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                                 Text(performance != nil ? "2020-08-03 14:00" : "暂无")
                                     .font(Font.caption.weight(.semibold))
                                     .foregroundColor(Color.white.opacity(0.6))
-                            }
+                            }.padding(.vertical, 12)
+
                             
                             Spacer()
                             
-                            RingView(percentage: (performance ?? 0) / 100)
+                            RingView(percentage: (performance ?? 0) / 100, width: 44, score: Int(performance ?? 0))
                         }
-                        .padding(.horizontal)
-                        .padding(.vertical, 8)
+                        .padding(.horizontal,16)
                     )
             }
             .padding()
@@ -95,9 +95,10 @@ struct RecommandCard: View {
     }
 }
 
-fileprivate struct RingView: View {
+ struct RingView: View {
     var percentage: CGFloat
-    
+    var width : CGFloat
+    var score: Int
     var body: some View {
         ZStack {
             Circle()
@@ -111,9 +112,9 @@ fileprivate struct RingView: View {
                     style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round, miterLimit: .infinity, dash: [20, 0], dashPhase: 0)
                 )
                 .rotationEffect(Angle(degrees: -90))
-                .frame(width: 44, height: 44)
+                .frame(width: width, height: width)
                 .shadow(color: Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(0.1), radius: 3, x: 0, y: 3)
-            Text("\(Int(percentage * 100))")
+            Text("\(Int(score))")
                 .foregroundColor(.white)
                 .font(.subheadline)
                 .fontWeight(.bold)

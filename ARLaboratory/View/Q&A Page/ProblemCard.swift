@@ -17,11 +17,14 @@ struct ProblemCard: View {
     @State var tag : Bool = false
     @Binding var score : Int
     @Binding var offset : Int
+    @Binding var correctAnswer : Int
+    @Binding var showScore : Bool
+    @Binding var circleAnimationStart : Bool
+    var countOfProblems : Int
     var body: some View {
         let answerIndex : Int = self.problem.answer
 
         ZStack {
-            
             HStack {
                 Spacer()
                 VStack {
@@ -36,10 +39,7 @@ struct ProblemCard: View {
             }
             .padding(.trailing , 22)
             .padding(.top , 22)
-
             .zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
-            
-            
             ZStack {
                     
                 
@@ -48,25 +48,22 @@ struct ProblemCard: View {
                     
                         VStack {
                             ZStack {
-                                HStack{
+                                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
                                     Text("第")
                                         .font(.system(size : 18))
                                         .foregroundColor(Color("primaryColor"))
                                         .padding(.bottom , 2)
-                                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
                                         
-                                    Text("\(problemIndex)")
+                                    Text("\(problemIndex + 1)")
                                         .font(.system(size : 20))
                                         .foregroundColor(Color("primaryColor"))
                                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                         .padding(.bottom , 2)
-                                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
 
-                                    Text("/\(problems.count)题")
+                                    Text(" /\(countOfProblems)题")
                                         .kerning(1)
                                         .font(.system(size : 18))
                                         .foregroundColor(Color("primaryColor"))
-                                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
 
                                 }
                                 
@@ -81,8 +78,6 @@ struct ProblemCard: View {
                             .padding(.bottom ,10)
 
 
-                            
-                                
                             Text(experimentName).font(.system(size: 14))
                                 .kerning(5)
                                 .foregroundColor(Color("primaryColor"))
@@ -132,13 +127,17 @@ struct ProblemCard: View {
                                 self.tag = true
                                 if chosenIndex == answerIndex {
                                     score += 10
+                                    correctAnswer += 1
                                 }
-                                if(offset < problems.count)
+                                if(offset < countOfProblems)
                                 {
                                     offset = offset + 1
                                     
                                 }else{
                                     offset = 0
+                                }
+                                if problemIndex == countOfProblems-1 {
+                                    showScore = true
                                 }
                             }
                            
@@ -158,11 +157,7 @@ struct ProblemCard: View {
                         
                     }
                     .offset(x: 0, y: 360)
-                                
-                   
-                        
-
-                             
+                               
                 
                 
                 }
@@ -181,6 +176,6 @@ struct ProblemCard: View {
 
 struct ProblemCard_Previews: PreviewProvider {
     static var previews: some View {
-        ProblemCard(problemIndex: 14, experimentName: "小球碰撞验证动量守恒定律", problem: problems[0], score: .constant(0), offset: .constant(0))
+        ProblemCard(problemIndex: 13, experimentName: "小球碰撞验证动量守恒定律", problem: problems[0], score: .constant(0), offset: .constant(0), correctAnswer: .constant(0), showScore: .constant(false), circleAnimationStart: .constant(false), countOfProblems: 14)
     }
 }
