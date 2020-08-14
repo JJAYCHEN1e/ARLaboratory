@@ -32,8 +32,13 @@ struct SubjectView: View {
                                         .navigationLinkWithResponsiveButtonStype(desination: LabIntroView(lab: lab))
                                         .scaleEffect(onAppearAnimation ? 1.1 : 1)
                                         .animation(.interpolatingSpring(mass: 1.0, stiffness: 150.0, damping: 10, initialVelocity: 0))
-                                        .opacity(onAppearAnimation ? 0 : 1)
-                                        .animation(.easeOut)
+                                        .opacity(onAppearAnimation ? 0.1 : 1)
+                                        .animation(.easeInOut)
+                                }
+                            }
+                            .onAppear {
+                                DispatchQueue.global().async {
+                                    onAppearAnimation = false
                                 }
                             }
                         }
@@ -41,11 +46,6 @@ struct SubjectView: View {
                     .padding(.bottom)
                 }
                 .padding()
-                .onAppear {
-                    DispatchQueue.global().asyncAfter(deadline: .now() + 0.2) {
-                        onAppearAnimation = false
-                    }
-                }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
