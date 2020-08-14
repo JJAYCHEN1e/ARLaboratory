@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SubjectView: View {
     @State public var selectedSubject = Subject.all
+    @State private var onAppearAnimation = true
     
     let cardMinimenSize: CGFloat = screenWidth < 400 ? 135 : 220
     let cardSpacing: CGFloat = screenWidth < 400 ? 16 : 24
@@ -20,7 +21,7 @@ struct SubjectView: View {
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
-                VStack(alignment: .center) {
+                LazyVStack(alignment: .center) {
                     ForEach(Subject.allCases) { subject in
                         if subject != .all && (selectedSubject == .all || selectedSubject == subject) {
                             SubjectHeadView(title: subject.description(), subtitle: subject.rawValue.capitalized)
@@ -29,6 +30,15 @@ struct SubjectView: View {
                                     lab in
                                     SubjectLabCard(title: lab.title, subtitle: lab.subtitle, illustrationImage: lab.illustrationImage, linearGradient: lab.gradient)
                                         .navigationLinkWithResponsiveButtonStype(desination: LabIntroView(lab: lab))
+                                        .scaleEffect(onAppearAnimation ? 1.1 : 1)
+                                        .animation(.interpolatingSpring(mass: 1.0, stiffness: 150.0, damping: 10, initialVelocity: 0))
+                                        .opacity(onAppearAnimation ? 0.1 : 1)
+                                        .animation(.easeInOut)
+                                }
+                            }
+                            .onAppear {
+                                DispatchQueue.global().async {
+                                    onAppearAnimation = false
                                 }
                             }
                         }
