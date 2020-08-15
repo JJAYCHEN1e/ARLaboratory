@@ -44,12 +44,12 @@ struct CardViews: View {
                 }
                 ScoreView(correctAnswers: $correctAnswers, experimentName: experimentName, countOfProblems: countOfProblems, showScoreCard: $showScoreCard, circleAnimationStart: $circleAnimationStart, showSheet: $showSheet)
                     .offset(y: showScoreCard ? 0 : 100)
-//                    .scaleEffect(x: showScoreCard ? 1 : 0.79, y: showScoreCard ? 1 : 0.8, anchor: .center)
                     .opacity(showScoreCard ? 1 : 0.01)
                     .zIndex(2)
                     .animation(
                         Animation
                             .easeInOut(duration: 0.5)
+                            .delay(0.1)
 //                            .spring(response: 0.1, dampingFraction: 0.5, blendDuration: 1)
                             )
                     
@@ -58,7 +58,7 @@ struct CardViews: View {
 
            
             }
-        .animation(.easeInOut)
+        .animation(.easeInOut(duration: 0.5))
 
 
             

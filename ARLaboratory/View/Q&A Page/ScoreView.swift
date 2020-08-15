@@ -114,7 +114,7 @@ struct ScoreView: View {
                             RingView(percentage: showScoreCard ? (CGFloat(correctAnswers)/CGFloat(countOfProblems)) : 0, width: 44, score: Int((CGFloat(correctAnswers)/CGFloat(countOfProblems))*100))
                                 .animation(
                                     Animation.interpolatingSpring(mass: 1, stiffness: 100, damping: 30, initialVelocity: 7)
-                                        .delay(0.6)
+                                        .delay(0.8)
                                 )
                                 .padding(16)
                                 

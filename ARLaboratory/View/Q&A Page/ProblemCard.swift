@@ -119,7 +119,10 @@ struct ProblemCard: View {
 
                         }.frame(width: 553, height: 625, alignment: .top )
                     VStack {
-                        (hasPressed ? ( chosenIndex == answerIndex ? Text("牛逼 对了") : Text("答错了，下次努力")) : Text(""))
+                        (hasPressed ? ( chosenIndex == answerIndex ? Text("恭喜你，答对啦") : Text("答错了，再接再厉哦")) : Text(" "))
+                            .kerning(1.67)
+                            .font(.system(size : 15))
+                            .foregroundColor(Color(#colorLiteral(red: 0.4509803922, green: 0.4509803922, blue: 0.4509803922, alpha: 1)))
                             .padding(.bottom,5)
                         Button(action: {
                             if(hasPressed && !tag){
