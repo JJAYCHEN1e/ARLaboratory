@@ -11,7 +11,9 @@ import SwiftUI
 struct ARLaboratoryApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+        
+            MainHomePageView()
         }
     }
 }

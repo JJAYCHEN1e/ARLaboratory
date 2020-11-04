@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Experiment" representedClassName="Experiment" syncable="YES" codeGenerationType="class">
+        <attribute name="chapter" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="column" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="liked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="numbersOfCorectAnswers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numbersOfProblems" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="subject" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Experiment"/>
+    </entity>
+    <entity name="Liked" representedClassName="Liked" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Experiment"/>
+    </entity>
+    <elements>
+        <element name="Experiment" positionX="-7228.33203125" positionY="-1578.90625" width="196.3203125" height="193"/>
+        <element name="Liked" positionX="-6777.14453125" positionY="-1627.3046875" width="128" height="88"/>
+        <element name="History" positionX="-6775.9765625" positionY="-1376.77734375" width="128" height="73"/>
+    </elements>
+</model>
