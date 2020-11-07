@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainHomePageView: View {
     @State private var tabSelection = 2
-    
+    @ObservedObject var viewModel = ViewModel()
     var body: some View {
         let biggerAvatar: Bool = (tabSelection == 3 ? true : false)
         ZStack {
@@ -97,7 +97,8 @@ struct MainHomePageView: View {
                                 .mask(Image("HomePage").resizable().frame(width: 31, height: 31, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
                         }.buttonStyle(ResponsiveButtonStyle())
                         Spacer()
-                        Button(action: {                                withAnimation(.easeOut, {tabSelection=3})
+                        Button(action: {
+                            withAnimation(.easeOut, {tabSelection=3})
                         }) {
                             Rectangle()
                                 .frame(width: 31, height: 31, alignment: .center)
@@ -109,8 +110,11 @@ struct MainHomePageView: View {
             }
             
             
-        }.background(Color.white)
-        
+        }.background(Color.white).onAppear(perform: {
+            tabSelection = viewModel.selection
+        }).onDisappear(perform: {
+            viewModel.selection = tabSelection
+        })
     }
     
     struct MainHomePageView_Previews: PreviewProvider {
@@ -121,3 +125,4 @@ struct MainHomePageView: View {
     
     
 }
+

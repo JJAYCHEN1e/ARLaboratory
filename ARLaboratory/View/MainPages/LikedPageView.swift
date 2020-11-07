@@ -29,11 +29,9 @@ struct LikedPageView: View {
                     })
                     Text("收藏").font(Font.system(size: 27).weight(.semibold)).foregroundColor(.white).kerning(1).shadow(color: Color(#colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 0.32)), radius: 4, x: 0, y: 2)
                 }.padding(.bottom,10).frame(height: 101)
+                
                 TopRoundedRectangleView().overlay(
-                    
-                    
                     VStack {
-                        
                         if(experiments.count == 0){
                             Image("noLikes").resizable().frame(width: 223, height: 130).padding(.top, 150)
                             Text("/ *  这里空空如也  * /").font(Font.system(size: 14).weight(.bold)).foregroundColor(Color(#colorLiteral(red: 0.6823529412, green: 0.6823529412, blue: 0.6823529412, alpha: 1))).kerning(2).padding(.top, 50)
@@ -47,10 +45,12 @@ struct LikedPageView: View {
                                         Button(action: {}) {
                                             RoundedRectangle(cornerRadius: 16).foregroundColor(.white).shadow(color: Color(#colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)), radius: 15, x: 0, y: 2).overlay(
                                                 HStack(spacing: 20){
-                                                    Image(experiment.image).resizable().frame(width: 100, height: 100).clipShape(RoundedRectangle(cornerRadius: 15))
+                                                    Image(experiment.image).resizable().aspectRatio(contentMode: .fill)
+                                                        .frame(width: 100, height: 100)
+                                                        .clipShape(RoundedRectangle(cornerRadius: 15))
                                                     VStack(alignment: .leading, spacing: 4){
-                                                        Text(experiment.title).font(Font.system(size: 16).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.3294117647, green: 0.4078431373, blue: 1, alpha: 1)))
-                                                        Text("花点时间学生物").font(Font.system(size: 22).weight(.semibold)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.4156862745, alpha: 1))).lineLimit(1).frame(height: 28)
+                                                        Text(decodeSubject(subject: experiment.subject)).font(Font.system(size: 16).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.3294117647, green: 0.4078431373, blue: 1, alpha: 1)))
+                                                        Text(experiment.title).font(Font.system(size: 22).weight(.semibold)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.4156862745, alpha: 1))).lineLimit(1).frame(height: 28).padding(.top, 4)
                                                         Spacer(minLength: 0)
                                                         Text("第\(experiment.chapter)章节").font(Font.system(size: 15)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.2039215686, green: 0.262745098, blue: 0.337254902, alpha: 1)))
                                                     }.padding(.vertical,22)

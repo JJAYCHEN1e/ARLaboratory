@@ -52,33 +52,6 @@ struct ExpeCardBottomView_Previews: PreviewProvider {
     }
 }
 
-struct ScoreCircleView: View {
-   var percentage: CGFloat
-   var width : CGFloat
-   var score: Int
-   var body: some View {
-       ZStack {
-           Circle()
-               .stroke(Color.black.opacity(0.1), style: StrokeStyle(lineWidth: 5))
-               .frame(width: width, height: width)
-           
-           Circle()
-               .trim(from: 0.0, to: percentage)
-               .stroke(
-                   LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.7730026841, green: 1, blue: 0.9720677733, alpha: 1)), Color(#colorLiteral(red: 0.5450980392, green: 0.3960784314, blue: 0.9490196078, alpha: 0.66))]), startPoint: .bottomTrailing, endPoint: .topLeading),
-                   style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round, miterLimit: .infinity, dash: [20, 0], dashPhase: 0)
-               )
-               .rotationEffect(Angle(degrees: -90))
-               .frame(width: width, height: width)
-               .shadow(color: Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(0.1), radius: 3, x: 0, y: 3)
-        (score < 0 ? Text("Go") : Text("\(score)"))
-               .foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.8)))
-            .font(Font.system(size: 14).weight(.semibold))
-               .fontWeight(.bold)
-       }
-   }
-}
-
 
 struct gradeModifier: ViewModifier {    
     func body(content : Content) -> some View {

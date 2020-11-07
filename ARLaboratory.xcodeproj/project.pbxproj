@@ -21,6 +21,8 @@
 		40A1FBD22554F47300DDB69F /* PrivacyIntroPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A1FBD12554F47300DDB69F /* PrivacyIntroPageView.swift */; };
 		40C40BDA2553EB320064B704 /* TopRoundedRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C40BD92553EB320064B704 /* TopRoundedRectangleView.swift */; };
 		40CC4D7025567F4600D822FB /* ScorePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC4D6F25567F4600D822FB /* ScorePageView.swift */; };
+		40CC4D7F25568A3E00D822FB /* ScoreCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC4D7E25568A3D00D822FB /* ScoreCircleView.swift */; };
+		40CC4D8225569B4700D822FB /* ExperimentIntroPageview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC4D8125569B4700D822FB /* ExperimentIntroPageview.swift */; };
 		40D92CB024E39934002BF5D0 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D92CAF24E39934002BF5D0 /* Problem.swift */; };
 		40D92CB524E39944002BF5D0 /* CardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D92CB224E39944002BF5D0 /* CardViews.swift */; };
 		40D92CB624E39944002BF5D0 /* ProblemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D92CB324E39944002BF5D0 /* ProblemCard.swift */; };
@@ -71,6 +73,8 @@
 		40A1FBD12554F47300DDB69F /* PrivacyIntroPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyIntroPageView.swift; sourceTree = "<group>"; };
 		40C40BD92553EB320064B704 /* TopRoundedRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedRectangleView.swift; sourceTree = "<group>"; };
 		40CC4D6F25567F4600D822FB /* ScorePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorePageView.swift; sourceTree = "<group>"; };
+		40CC4D7E25568A3D00D822FB /* ScoreCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCircleView.swift; sourceTree = "<group>"; };
+		40CC4D8125569B4700D822FB /* ExperimentIntroPageview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentIntroPageview.swift; sourceTree = "<group>"; };
 		40D92CAF24E39934002BF5D0 /* Problem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		40D92CB224E39944002BF5D0 /* CardViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViews.swift; sourceTree = "<group>"; };
 		40D92CB324E39944002BF5D0 /* ProblemCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemCard.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				403F7A3625528EFB006642C7 /* StoreMainPage.swift */,
+				40CC4D8125569B4700D822FB /* ExperimentIntroPageview.swift */,
 				40A1FBCB2554D3AD00DDB69F /* LikedPageView.swift */,
 				40CC4D6F25567F4600D822FB /* ScorePageView.swift */,
 				40A1FBCE2554F0E500DDB69F /* HelpInfoPage.swift */,
@@ -159,6 +164,7 @@
 				40FC9C05254AB63C0033F84B /* ExpeCardBottomView.swift */,
 				4091D18A2554BA13006E0A06 /* FunctionBarView.swift */,
 				403976B825529322007D0A35 /* HomepageHeaderView.swift */,
+				40CC4D7E25568A3D00D822FB /* ScoreCircleView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				40FC9C06254AB63C0033F84B /* ExpeCardBottomView.swift in Sources */,
 				40FC9C02254944000033F84B /* ExperimentCardView.swift in Sources */,
 				63061C8724E40F0F001DEB43 /* LabIntroView.swift in Sources */,
+				40CC4D7F25568A3E00D822FB /* ScoreCircleView.swift in Sources */,
 				40C40BDA2553EB320064B704 /* TopRoundedRectangleView.swift in Sources */,
 				639E6EA324DE60E300073784 /* ColumnHeadView.swift in Sources */,
 				6370B85824DE8F5E00DC43E5 /* RecommandColumn.swift in Sources */,
@@ -449,6 +456,7 @@
 				403F7A3725528EFB006642C7 /* StoreMainPage.swift in Sources */,
 				6354F5A324E53C62007D4D21 /* ImportColumn.swift in Sources */,
 				639E6E9824DDB23000073784 /* Constants+Screen.swift in Sources */,
+				40CC4D8225569B4700D822FB /* ExperimentIntroPageview.swift in Sources */,
 				40A1FBD22554F47300DDB69F /* PrivacyIntroPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

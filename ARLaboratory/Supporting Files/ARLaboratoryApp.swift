@@ -88,3 +88,6 @@ struct ARLaboratoryApp: App {
         db.close()
     }
 }
+class ViewModel: ObservableObject {
+    @Published var selection: Int = 2
+}

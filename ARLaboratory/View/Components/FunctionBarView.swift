@@ -13,7 +13,9 @@ struct FunctionBarView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 16).frame(width: 774, height: 125).foregroundColor(.white).shadow(color: Color(#colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)), radius: 15, x: 0, y: 2).overlay(
             HStack(spacing: 0){
-                    Button(action: {}) {
+                    Button(action: {
+                        self.navigationStack.push(ScorePageView())
+                    }) {
                         Spacer()
                         HStack{
                             Image("成绩").resizable().frame(width: 48, height: 48).padding(.horizontal, 4)

@@ -6,9 +6,10 @@
 //
 
 
-
+import NavigationStack
 import SwiftUI
 struct ExperimentCardView: View {
+    @EnvironmentObject private var navigationStack: NavigationStack
     @State var title: String
     @State var subject: String
     @State var chapter: Int
@@ -26,7 +27,6 @@ struct ExperimentCardView: View {
         
         HStack {
             
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
                 VStack{
                     Image(image)
                         .resizable()
@@ -96,13 +96,15 @@ struct ExperimentCardView: View {
                     .padding(.horizontal, 13)
                     
                 }
+                .onTapGesture(perform: {
+                    navigationStack.push(ExperimentIntroPageview(title: title, subject: subject))
+                })
                 .frame(width: 225, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                 .cornerRadius(25)
                 .padding(.vertical,13)
                 .shadow(color: Color(#colorLiteral(red: 0.2352941176, green: 0.5019607843, blue: 0.8196078431, alpha: 0.09)), radius: 15, x: 0, y: 4)
                 .scaleEffect(scaleCofficient)
-            }.buttonStyle(ResponsiveButtonStyle())
         }
 //        .onTapGesture(perform: {
 //            withAnimation(.easeOut, {self.scaleCofficient = 0.9})

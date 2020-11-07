@@ -12,7 +12,7 @@ struct SubtitleComponent: View {
     var fontSize: CGFloat = 25
     var body: some View {
         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
-            RoundedRectangle(cornerRadius: 6).frame(width: 10, height: 24).foregroundColor(Color(#colorLiteral(red: 0.3882352941, green: 0.3843137255, blue: 0.9254901961, alpha: 1))).padding(.trailing,10)
+            RoundedRectangle(cornerRadius: 6).frame(width: 10, height: fontSize - 1 ).foregroundColor(Color(#colorLiteral(red: 0.3882352941, green: 0.3843137255, blue: 0.9254901961, alpha: 1))).padding(.trailing,10)
             Text(str).font(Font.system(size: fontSize).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.2745098039, green: 0.2705882353, blue: 0.737254902, alpha: 1)))
             Spacer()
         }

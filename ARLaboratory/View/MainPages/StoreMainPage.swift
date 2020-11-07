@@ -43,16 +43,7 @@ struct StoreMainPage: View {
         }
     }
     
-    func decodeSubject(subject: String)-> String{
-        switch subject {
-        case "物理":
-            return "物理 - Physics"
-        case "化学":
-            return "化学 - Chemistry"
-        default:
-            return "生物 - Biology"
-        }
-    }
+
     
     
     func updateData(chosenIndex: Int)-> [ExperimentInfo]{
@@ -91,6 +82,17 @@ struct StoreMainPage: View {
         return tmp
     }
     
+}
+
+func decodeSubject(subject: String)-> String{
+    switch subject {
+    case "物理":
+        return "物理 - Physics"
+    case "化学":
+        return "化学 - Chemistry"
+    default:
+        return "生物 - Biology"
+    }
 }
 
 struct StoreMainPage_Previews: PreviewProvider {
