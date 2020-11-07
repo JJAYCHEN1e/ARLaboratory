@@ -63,6 +63,7 @@
 		4035C7082551A04E005B59B9 /* MainHomepageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomepageContentView.swift; sourceTree = "<group>"; };
 		403976B825529322007D0A35 /* HomepageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageHeaderView.swift; sourceTree = "<group>"; };
 		403F7A3625528EFB006642C7 /* StoreMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMainPage.swift; sourceTree = "<group>"; };
+		4055D7532557026B0025AA23 /* NotoSansMonoCJKsc-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMonoCJKsc-Bold.otf"; sourceTree = "<group>"; };
 		408690F524E634C300465EB8 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		4091D17B2554AA8F006E0A06 /* AccountPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageView.swift; sourceTree = "<group>"; };
 		4091D18A2554BA13006E0A06 /* FunctionBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionBarView.swift; sourceTree = "<group>"; };
@@ -239,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				4092D85F25530AF900C68C73 /* ARLaboratory-Bridging-Header.h */,
+				4055D7532557026B0025AA23 /* NotoSansMonoCJKsc-Bold.otf */,
 				633707B924DB14C1008256FC /* ContentView.swift */,
 				639E6E9924DE421A00073784 /* View */,
 				639E6E9624DDB21F00073784 /* Helper */,

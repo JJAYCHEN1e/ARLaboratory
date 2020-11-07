@@ -52,21 +52,8 @@ struct MainHomePageView: View {
                                 ScrollView{AccountPageView()}.padding(.vertical, 59).ignoresSafeArea().onAppear(perform: {print("accountPage Appeared")})
                             }
                             
-                        }.padding(.vertical,20)
-                        
-                        
-                        
-                        //                        TabView(selection: $tabSelection,content:{
-                        //                            ScrollView{
-                        //                                StoreMainPage()
-                        //                            }.ignoresSafeArea().tag(1)
-                        //                            ScrollView {
-                        //                                MainHomepageContentView()
-                        //                            }.ignoresSafeArea().tag(2)
-                        //                            AccountPageView().padding(.vertical, 59).ignoresSafeArea().tag(3)
-                        //                        }).offset(y: 20)
+                        }.padding(.top,20)
                     )
-                //                    .tabViewStyle(PageTabViewStyle())
                 
             }
             
@@ -94,7 +81,7 @@ struct MainHomePageView: View {
                             Rectangle()
                                 .frame(width: 31, height: 31, alignment: .center)
                                 .foregroundColor(tabSelection == 2 ? Color(#colorLiteral(red: 0.5647058824, green: 0.3960784314, blue: 0.8666666667, alpha: 1)) : Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 1)) )
-                                .mask(Image("HomePage").resizable().frame(width: 31, height: 31, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
+                                .mask(Image("Homepage").resizable().frame(width: 31, height: 31, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
                         }.buttonStyle(ResponsiveButtonStyle())
                         Spacer()
                         Button(action: {

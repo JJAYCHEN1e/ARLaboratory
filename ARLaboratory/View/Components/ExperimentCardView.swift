@@ -47,12 +47,12 @@ struct ExperimentCardView: View {
                                     .lineSpacing(3)
                                     .lineLimit(2)
                                     .frame(height: showArrow ? nil : 52)
-                                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
-                                RoundedRectangle(cornerRadius: 11).frame(width: 50,height: 22).foregroundColor(liked ? Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)) : Color(#colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1))).overlay(
+                                Spacer(minLength: 0)
+                                RoundedRectangle(cornerRadius: 11).frame(width: 50,height: 22).foregroundColor(liked ? Color(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)) : Color(#colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1))).overlay(
                                         ZStack{
                                             Text("已收藏")
                                                 .font(Font.system(size: 11).weight(.semibold)).kerning(1).frame(width: 50, height: 22, alignment: .center)
-                                                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                                                .foregroundColor(Color(#colorLiteral(red: 0.4352941176, green: 0.4352941176, blue: 0.4352941176, alpha: 1)))
                                                 .opacity(liked ? 0.7 : 0)
                                             Text("收藏")
                                                 .font(Font.system(size: 12).weight(.semibold))

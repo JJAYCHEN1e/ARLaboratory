@@ -10,12 +10,19 @@ import NavigationStack
 @main
 struct ARLaboratoryApp: App {
     @EnvironmentObject private var navigationStack: NavigationStack
-
+    
     var body: some Scene {
         WindowGroup {
             NavigationStackView(){
                 
-                MainHomePageView().onAppear(perform: {initSqlite()})
+                MainHomePageView().onAppear(
+                    perform: {
+                        initSqlite()
+                        for family in UIFont.familyNames.sorted() {
+                            let names = UIFont.fontNames(forFamilyName: family)
+                            print("Family: \(family) Font names: \(names)")
+                        }
+                    })
                 
             }
         }

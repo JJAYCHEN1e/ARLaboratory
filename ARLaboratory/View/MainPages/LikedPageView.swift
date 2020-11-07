@@ -27,51 +27,63 @@ struct LikedPageView: View {
                     }.padding(.horizontal,45).onTapGesture(perform: {
                         self.navigationStack.pop()
                     })
-                    Text("收藏").font(Font.system(size: 27).weight(.semibold)).foregroundColor(.white).kerning(1).shadow(color: Color(#colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 0.32)), radius: 4, x: 0, y: 2)
+                    Text("收藏夹").font(Font.system(size: 27).weight(.semibold)).foregroundColor(.white).kerning(1).shadow(color: Color(#colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 0.32)), radius: 4, x: 0, y: 2)
                 }.padding(.bottom,10).frame(height: 101)
-                
                 TopRoundedRectangleView().overlay(
+                    
                     VStack {
+                        
                         if(experiments.count == 0){
                             Image("noLikes").resizable().frame(width: 223, height: 130).padding(.top, 150)
-                            Text("/ *  这里空空如也  * /").font(Font.system(size: 14).weight(.bold)).foregroundColor(Color(#colorLiteral(red: 0.6823529412, green: 0.6823529412, blue: 0.6823529412, alpha: 1))).kerning(2).padding(.top, 50)
+                            Text("/ * 这里空空如也 * /").font(Font.system(size: 14).weight(.bold)).foregroundColor(Color(#colorLiteral(red: 0.6823529412, green: 0.6823529412, blue: 0.6823529412, alpha: 1))).kerning(2).padding(.top, 50)
                             Spacer()
+                            
+                            
+                            
                         }else{
-                            VStack{
-                                SubtitleComponent(str: "我的收藏").padding(.horizontal,18)
-                                Spacer()
+                            VStack(spacing : 15){
+                                SubtitleComponent(str: "我的收藏").padding(.horizontal,18).padding(.horizontal, 20)
                                 ScrollView(showsIndicators: false){
-                                    ForEach(experiments, id: \.self.title){ experiment in
-                                        Button(action: {}) {
-                                            RoundedRectangle(cornerRadius: 16).foregroundColor(.white).shadow(color: Color(#colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)), radius: 15, x: 0, y: 2).overlay(
-                                                HStack(spacing: 20){
-                                                    Image(experiment.image).resizable().aspectRatio(contentMode: .fill)
-                                                        .frame(width: 100, height: 100)
-                                                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                                                    VStack(alignment: .leading, spacing: 4){
-                                                        Text(decodeSubject(subject: experiment.subject)).font(Font.system(size: 16).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.3294117647, green: 0.4078431373, blue: 1, alpha: 1)))
-                                                        Text(experiment.title).font(Font.system(size: 22).weight(.semibold)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.4156862745, alpha: 1))).lineLimit(1).frame(height: 28).padding(.top, 4)
-                                                        Spacer(minLength: 0)
-                                                        Text("第\(experiment.chapter)章节").font(Font.system(size: 15)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.2039215686, green: 0.262745098, blue: 0.337254902, alpha: 1)))
-                                                    }.padding(.vertical,22)
-                                                    Spacer()
-                                                    RoundedRectangle(cornerRadius: 18).frame(width: 110, height: 36).foregroundColor(Color(#colorLiteral(red: 0.8352941176, green: 0.831372549, blue: 1, alpha: 1))).overlay(Text("立即学习").font(Font.system(size: 16)).fontWeight(.semibold).kerning(2).foregroundColor(Color(#colorLiteral(red: 0.1647058824, green: 0.1568627451, blue: 0.8, alpha: 1)))).padding()
-                                                }.padding(.horizontal,18)
-                                                
-                                            ).frame(height: 130)
-                                        }.padding(.horizontal).padding(.vertical,3).buttonStyle(ResponsiveButtonStyle())
-                                    }
+                                    VStack {
+                                        ForEach(0..<experiments.count, id: \.self){ index in
+                                            let experiment = experiments[index]
+                                            
+                                            Button(action: {}) {
+                                                ZStack {
+                                                    RoundedRectangle(cornerRadius: 16).foregroundColor(.white).shadow(color: Color(#colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)), radius: 15, x: 0, y: 2).overlay(
+                                                        HStack(spacing: 20){
+                                                            VStack(alignment: .leading, spacing: 4){
+                                                                Text(decodeSubject(subject: experiment.subject)).font(Font.system(size: 16).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.3294117647, green: 0.4078431373, blue: 1, alpha: 1)))
+                                                                Text(experiment.title).font(Font.system(size: 22).weight(.semibold)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.4156862745, alpha: 1))).lineLimit(1).frame(height: 28).padding(.top, 4)
+                                                                Spacer(minLength: 0)
+                                                                Text("第 \(experiment.chapter) 章节").font(Font.system(size: 15)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.2039215686, green: 0.262745098, blue: 0.337254902, alpha: 1)))
+                                                            }.padding(.vertical,22).padding(.leading, 84)
+                                                            Spacer()
+                                                            ScoreCircleView(percentage: CGFloat(experiment.score)/100, width: 65, score: experiment.score, innerLineWidth: 3.5, outerLineWidth: 7, fontSize: 20, shadowOffsetX: 7, shadowOffsetY: -4, shadowRadius: 7).padding(20)
+                                                        }.padding(.horizontal,18)
+                                                        
+                                                    ).padding(.leading, 10).frame(height: 130)
+                                                    
+                                                    HStack {
+                                                        Image(experiment.image).resizable().aspectRatio(contentMode: .fill).frame(width: 100, height: 100).clipShape(RoundedRectangle(cornerRadius: 15)).offset(x: -20)
+                                                        Spacer()
+                                                    }.padding(.leading,10)
+                                                }
+                                            }.padding(.horizontal).padding(.vertical,7).buttonStyle(ResponsiveButtonStyle())
+                                            .padding(.leading, 20)
+                                        }
+                                    }.padding(.vertical,20)
                                 }
-                                
-                            }.padding(.top, 50).padding(.horizontal,40)
+                                Spacer(minLength: 0)
+
+                            }.padding(.top, 60).padding(.horizontal,55)
                             
                         }
                     }
                 )
             }
             
-        }.onAppear()
-        
+        }
     }
     
     

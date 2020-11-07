@@ -29,15 +29,17 @@ struct ExpeCardBottomView: View {
                         .font(Font.system(size: 14).weight(.semibold))
                         .foregroundColor(Color(#colorLiteral(red: 0.4039215686, green: 0.4039215686, blue: 0.4039215686, alpha: 1)))
                         .kerning(1.4)
-                        
-                 
-                        (score < 0 ? Text("动动小手，快来试试吧！") : Text("\(numberOfCorrectAnswers) of \(numberOfCorrectAnswers) Problems"))
+                    (score < 0 ? Text("动动小手，快来试试吧！") : Text("\(numberOfCorrectAnswers) of \(numberOfCorrectAnswers) Problems"))
                             .gradeEffect()
-
-                    
                 }
                 Spacer()
-                ScoreCircleView(percentage: showBottom ?  CGFloat(score)/100 : CGFloat(0), width: 40, score: score)
+                if score<=0 {
+                    Image("Go").resizable().frame(width: 44, height: 44)
+                }else
+                {
+                    ScoreCircleView(percentage: showBottom ?  CGFloat(score)/100 : CGFloat(0), width: 40, score: score)
+                    
+                }
             }.padding(.top, 9)
             
             

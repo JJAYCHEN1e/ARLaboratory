@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-
+import NavigationStack
 struct MainHomepageContentView: View {
+    @EnvironmentObject private var navigationStack: NavigationStack
     var body: some View {
             VStack(spacing: 0) {
                 
@@ -15,7 +16,9 @@ struct MainHomepageContentView: View {
                     SubtitleComponent(str: "常用功能").padding(.bottom,10)
                     HStack {
                         
-                        Button(action: {}) {
+                        Button(action: {
+                            self.navigationStack.push(ScorePageView())
+                        }) {
                             Image("history").resizable().aspectRatio(contentMode: .fit)
                                 .frame(width: 225, height: 95)
                                 .shadow(color: Color(#colorLiteral(red: 0.8352941176, green: 0.831372549, blue: 1, alpha: 1)), radius: 15, x: 2, y: 2).overlay(
@@ -24,8 +27,8 @@ struct MainHomepageContentView: View {
                                         Spacer()
                                         VStack(alignment: .trailing){
                                             Spacer()
-                                            Text("学习记录").font(Font.system(size: 15).weight(.bold)).foregroundColor(Color(#colorLiteral(red: 0.9607843137, green: 0.9529411765, blue: 0.9529411765, alpha: 1))).kerning(1)
-                                            Text("2020-10-23").font(Font.system(size: 12).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1))).kerning(0)
+                                            Text("排行榜").font(Font.system(size: 15).weight(.bold)).foregroundColor(Color(#colorLiteral(red: 0.9607843137, green: 0.9529411765, blue: 0.9529411765, alpha: 1))).kerning(1)
+                                            Text("实验得分").font(Font.system(size: 12).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1))).kerning(0)
                                         }
                                         }.padding(.trailing,15).padding(.bottom,14)
                                     }
@@ -35,7 +38,9 @@ struct MainHomepageContentView: View {
                         
                         
                         
-                        Button(action:{}) {
+                        Button(action:{
+                            self.navigationStack.push(LikedPageView())
+                        }) {
                             Image("collection").resizable().aspectRatio(contentMode: .fit)
                                 .frame(width: 225, height: 95)
                                 .shadow(color: Color(#colorLiteral(red: 0.8274509804, green: 0.8862745098, blue: 0.9333333333, alpha: 1)), radius: 15, x: 2, y: 2)
@@ -44,8 +49,8 @@ struct MainHomepageContentView: View {
                                     Spacer()
                                     VStack(alignment: .trailing){
                                         Spacer()
-                                        Text("我的收藏").font(Font.system(size: 15).weight(.bold)).foregroundColor(Color(#colorLiteral(red: 0.9607843137, green: 0.9529411765, blue: 0.9529411765, alpha: 1))).kerning(1)
-                                        Text("尚未收藏").font(Font.system(size: 12).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1))).kerning(0)
+                                        Text("收藏夹").font(Font.system(size: 15).weight(.bold)).foregroundColor(Color(#colorLiteral(red: 0.9607843137, green: 0.9529411765, blue: 0.9529411765, alpha: 1))).kerning(1)
+                                        Text("最爱实验").font(Font.system(size: 12).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1))).kerning(0)
                                     }
                                 }.padding(.trailing,15).padding(.bottom,14)
                             )
@@ -62,7 +67,7 @@ struct MainHomepageContentView: View {
                                     VStack(alignment: .trailing){
                                         Spacer()
                                         Text("实验群组").font(Font.system(size: 15).weight(.bold)).foregroundColor(Color(#colorLiteral(red: 0.9607843137, green: 0.9529411765, blue: 0.9529411765, alpha: 1))).kerning(1)
-                                        Text("快来参加叭！").font(Font.system(size: 12).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1))).kerning(0)
+                                        Text("快来参加叭").font(Font.system(size: 12).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1))).kerning(0)
                                     }
                                 }.padding(.trailing,15).padding(.bottom,14)
                             )
