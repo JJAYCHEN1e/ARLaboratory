@@ -9,9 +9,16 @@ import SwiftUI
 import NavigationStack
 struct MainHomepageContentView: View {
     @EnvironmentObject private var navigationStack: NavigationStack
+    @ObservedObject private var globalExperiments = GlobalExperiments()
+    
+
     var body: some View {
+        
+        let count = globalExperiments.experiments.count
+        let list1 = self.globalExperiments.experiments.subArray(fromIndex: 0, endIndex: count/3-1)
+        let list2 = self.globalExperiments.experiments.subArray(fromIndex: count/3, endIndex: 2*count/3-1)
+        let list3 = self.globalExperiments.experiments.subArray(fromIndex: 2*count/3, endIndex: count-1)
             VStack(spacing: 0) {
-                
                 VStack {
                     SubtitleComponent(str: "常用功能").padding(.bottom,10)
                     HStack {
@@ -35,8 +42,6 @@ struct MainHomepageContentView: View {
                             )
                         }.buttonStyle(ResponsiveButtonStyle())
                         Spacer()
-                        
-                        
                         
                         Button(action:{
                             self.navigationStack.push(LikedPageView())
@@ -80,24 +85,42 @@ struct MainHomepageContentView: View {
                     HStack(alignment: .top,spacing: 0){
                         
                         LazyVStack{
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
+                            ForEach(0..<list1.count, id: \.self){ index in
+                                let experiment = list1[index]
+                                if index == 0 {
+                                    ExperimentCardView(title: "5大实验揭秘“力”", subject: "", chapter: -1, image: "5大实验揭秘“力”", column: "物理", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
+                                    
+                                }
+                                
+                                ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
+                            }
+                            
+                        
                             Spacer()
                         }
                         Spacer()
                         LazyVStack{
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
+                            ForEach(0..<list2.count, id: \.self){ index in
+                                let experiment = list2[index]
+                                if index == 2 {
+                                    ExperimentCardView(title: "生物实验大全", subject: "", chapter: -1, image: "生物实验大全", column: "生物", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
+                                    
+                                }
+                                ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
+                            }
                             
                             Spacer()
                         }
                         Spacer()
                         LazyVStack{
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
-                            ExperimentCardView(title: "气体的制备", subject: "生物", chapter: 1, image: "化学实验图例", column: "", numbersOfProblems: 1, numbersOfCorrectAnswers: 8, score: 79, showBottom: true, liked: false, showArrow: true)
+                            ForEach(0..<list3.count, id: \.self){ index in
+                                let experiment = list3[index]
+                                if index == 1 {
+                                    ExperimentCardView(title: "经典化学实验", subject: "", chapter: -1, image: "经典化学实验", column: "化学", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
+                                    
+                                }
+                                ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
+                            }
                             
                             Spacer()
                         }
@@ -115,4 +138,12 @@ struct MainHomepageContentView_Previews: PreviewProvider {
     }
 }
 
-
+extension Array{
+    func subArray(fromIndex: Int, endIndex: Int) -> Array {
+        var tmp : Array = []
+        for i in fromIndex...endIndex{
+            tmp.append(self[i])
+        }
+        return tmp
+    }
+}

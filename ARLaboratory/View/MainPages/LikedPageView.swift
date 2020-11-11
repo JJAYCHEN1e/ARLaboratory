@@ -59,7 +59,8 @@ struct LikedPageView: View {
                                                                 Text("第 \(experiment.chapter) 章节").font(Font.system(size: 15)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.2039215686, green: 0.262745098, blue: 0.337254902, alpha: 1)))
                                                             }.padding(.vertical,22).padding(.leading, 84)
                                                             Spacer()
-                                                            ScoreCircleView(percentage: CGFloat(experiment.score)/100, width: 65, score: experiment.score, innerLineWidth: 3.5, outerLineWidth: 7, fontSize: 20, shadowOffsetX: 7, shadowOffsetY: -4, shadowRadius: 7).padding(20)
+                                                            
+                                                            Image("studyButton").resizable().frame(width: 130, height: 36).padding(10)
                                                         }.padding(.horizontal,18)
                                                         
                                                     ).padding(.leading, 10).frame(height: 130)

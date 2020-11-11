@@ -9,9 +9,9 @@ import SwiftUI
 
 struct StoreMainPage: View {
     @State var chosenIndex : Int = 1
-   
+    @ObservedObject private var globalExperiments = GlobalExperiments()
     var body: some View {
-        let experiments : [ExperimentInfo] = updateData(chosenIndex: chosenIndex)
+        let experiments : [ExperimentInfo] = globalExperiments.fetchDataForSubject(subject: index2Subject(index: chosenIndex))
         VStack {
             HStack(spacing: 12){
                 Image("physics").resizable()
@@ -36,7 +36,7 @@ struct StoreMainPage: View {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 225)),GridItem(.adaptive(minimum: 225)),GridItem(.adaptive(minimum: 225))], alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
                     ForEach(experiments, id: \.self.title){ experiment in
-                        ExperimentCardView(title: experiment.title, subject: decodeSubject(subject: experiment.subject), chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: true, liked: experiment.liked, showArrow: false)
+                        ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: true, liked: experiment.liked,  showArrow: false)
                                             }
                 }.padding(.horizontal ,30).padding(.bottom, 40)
             }.padding(.horizontal,23)
@@ -46,41 +46,41 @@ struct StoreMainPage: View {
 
     
     
-    func updateData(chosenIndex: Int)-> [ExperimentInfo]{
-        let dbPath = try! FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("ARLaboratory.sqlite")
-        
-        let db = FMDatabase(url: dbPath)
-        
-        print(dbPath)
-        guard db.open() else {
-            print("Unable to open database")
-            return []
-        }
-        var tmp: [ExperimentInfo] = []
-
-        do{
-            let rs = try db.executeQuery("select title, subject, chapter, problems, correctAnswers, liked, score, column from experiment where subject ="+"\""+index2Subject(index: chosenIndex)+"\"", values: nil)
-                print( "Sucessful Query!!!")
-            while rs.next() {
-                let subject : String = rs.string(forColumn: "subject") ?? ""
-                let title:String = rs.string(forColumn: "title") ?? ""
-                let image:String = title
-                let chapter:Int  = Int(rs.int(forColumn: "chapter"))
-                let liked: Bool = rs.bool(forColumn: "liked")
-                let numbersOfProblems = Int(rs.int(forColumn: "problems"))
-                let numbersOfCorectAnswer = Int(rs.int(forColumn: "correctAnswers"))
-                let column: String = rs.string(forColumn: "column") ?? ""
-                let score = Int(rs.int(forColumn: "score"))
-                tmp.append(ExperimentInfo(subject: subject, title: title, image: image, chapter: chapter, column: column, liked: liked, numbersOfProblems: numbersOfProblems, numbersOfCorectAnswer: numbersOfCorectAnswer, score: score ))
-                print(title)
-            }
-            
-        }catch{
-            print("failed\(error.localizedDescription)")
-        }
-        db.close()
-        return tmp
-    }
+//    func updateData(chosenIndex: Int)-> [ExperimentInfo]{
+//        let dbPath = try! FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("ARLaboratory.sqlite")
+//
+//        let db = FMDatabase(url: dbPath)
+//
+//        print(dbPath)
+//        guard db.open() else {
+//            print("Unable to open database")
+//            return []
+//        }
+//        var tmp: [ExperimentInfo] = []
+//
+//        do{
+//            let rs = try db.executeQuery("select title, subject, chapter, problems, correctAnswers, liked, score, column from experiment where subject ="+"\""+index2Subject(index: chosenIndex)+"\"", values: nil)
+//                print( "Sucessful Query!!!")
+//            while rs.next() {
+//                let subject : String = rs.string(forColumn: "subject") ?? ""
+//                let title:String = rs.string(forColumn: "title") ?? ""
+//                let image:String = title
+//                let chapter:Int  = Int(rs.int(forColumn: "chapter"))
+//                let liked: Bool = rs.bool(forColumn: "liked")
+//                let numbersOfProblems = Int(rs.int(forColumn: "problems"))
+//                let numbersOfCorectAnswer = Int(rs.int(forColumn: "correctAnswers"))
+//                let column: String = rs.string(forColumn: "column") ?? ""
+//                let score = Int(rs.int(forColumn: "score"))
+//                tmp.append(ExperimentInfo(subject: subject, title: title, image: image, chapter: chapter, column: column, liked: liked, numbersOfProblems: numbersOfProblems, numbersOfCorectAnswer: numbersOfCorectAnswer, score: score ))
+//                print(title)
+//            }
+//
+//        }catch{
+//            print("failed\(error.localizedDescription)")
+//        }
+//        db.close()
+//        return tmp
+//    }
     
 }
 

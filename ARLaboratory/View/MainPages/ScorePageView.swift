@@ -64,7 +64,7 @@ struct ScorePageView: View {
                                                                         Text("第 \(experiment.chapter) 章节").font(Font.system(size: 15)).kerning(1).foregroundColor(Color(#colorLiteral(red: 0.2039215686, green: 0.262745098, blue: 0.337254902, alpha: 1)))
                                                                     }.padding(.vertical,22).padding(.leading, 84)
                                                                     Spacer()
-                                                                    ScoreCircleView(percentage: CGFloat(experiment.score)/100, width: 65, score: experiment.score, innerLineWidth: 3.5, outerLineWidth: 7, fontSize: 20, shadowOffsetX: 7, shadowOffsetY: -4, shadowRadius: 7).padding(20)
+                                                                    ScoreCircleView(percentage: CGFloat(experiment.score)/100, width: 65, score: experiment.score, innerLineWidth: 3.5, outerLineWidth: 7, fontSize: 20, shadowOffsetX: 7, shadowOffsetY: -4, shadowRadius: 7).padding(10)
                                                                 }.padding(.horizontal,18)
 
                                                             ).padding(.leading, 10).frame(height: 130)
@@ -114,7 +114,7 @@ struct ScorePageView: View {
         var tmp: [ExperimentInfo] = []
         
         do{
-            let rs = try db.executeQuery("select title, subject, chapter, problems, correctAnswers, score, column from experiment where score != -1 order by score limit 100", values: nil)
+            let rs = try db.executeQuery("select title, subject, chapter, problems, correctAnswers, score, column from experiment where score != -1 order by score desc limit 100", values: nil)
             print( "Sucessful Query!!!")
             while rs.next() {
                 let subject : String = rs.string(forColumn: "subject") ?? ""

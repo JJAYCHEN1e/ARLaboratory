@@ -11,6 +11,7 @@ struct ExperimentIntroPageview: View {
     @EnvironmentObject private var navigationStack: NavigationStack
     @State var bottomBarOffset: CGFloat = 100
     @State private var showSheet : Bool =  false
+    @State var liked: Bool
     var title: String
     var subject: String
     var body: some View {
@@ -19,7 +20,7 @@ struct ExperimentIntroPageview: View {
             
             VStack {
                 
-                Image("backgroundCandidate")
+                Image(decodeBackground(subject: subject))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .scaleEffect(1.01)
@@ -32,18 +33,39 @@ struct ExperimentIntroPageview: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Spacer()
                         Text(title).font(Font.system(size: 27).weight(.semibold)).foregroundColor(.white)
-                        Text(subject).font(Font.system(size: 17).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.8352941176, green: 0.831372549, blue: 1, alpha: 1)))
+                        Text(decodeSubject(subject: subject)).font(Font.system(size: 17).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.8352941176, green: 0.831372549, blue: 1, alpha: 1)))
                     }
                     Spacer()
                     VStack {
                         Spacer()
-                        Button(action:{}){
-                            RoundedRectangle(cornerRadius: 31).frame(width: 160, height: 40).foregroundColor(.white).overlay(
-                                Text("开始学习").font(Font.system(size: 18).weight(.semibold)).kerning(5).foregroundColor(Color(#colorLiteral(red: 0.5647058824, green: 0.3960784314, blue: 0.8666666667, alpha: 1)))
-                            )
-                        }.buttonStyle(ResponsiveButtonStyle())
+                        HStack(spacing: 20) {
+                            Button(action:{}){
+                                RoundedRectangle(cornerRadius: 31).frame(width: 150, height: 40).foregroundColor(.white).overlay(
+                                    Text("开始学习").font(Font.system(size: 18).weight(.semibold)).kerning(4).foregroundColor(Color(#colorLiteral(red: 0.5647058824, green: 0.3960784314, blue: 0.8666666667, alpha: 1)))
+                                )
+                            }.buttonStyle(ResponsiveButtonStyle())
+                            Button(action:{
+                                withAnimation(.linear, { liked.toggle()})
+                                clickLike(liked: liked, title: title)
+                            }){
+                                Circle().foregroundColor(.white).frame(width: 40,height: 40)
+                                    .overlay(
+                                        
+                                        ZStack {
+                                            Circle().frame(width: 12,height: 12)
+                                                .foregroundColor(liked ? Color(#colorLiteral(red: 0.9921568627, green: 0.9490196078, blue: 0.7725490196, alpha: 1)) : Color(#colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.8980392157, alpha: 1)))
+                                            
+                                            Circle().frame(width: 40,height: 40)
+                                                .foregroundColor(liked ? Color(#colorLiteral(red: 0.9411764706, green: 0.5647058824, blue: 0.3647058824, alpha: 1)) : Color(#colorLiteral(red: 0.6274509804, green: 0.6274509804, blue: 0.6274509804, alpha: 1)))
+                                                .mask(Image("star").resizable().frame(width: 23, height: 22))
+                                        })
+                                
+                            }.buttonStyle(ResponsiveButtonStyle())
+                        }
+                        
+                        
                     }
-                }.padding(.vertical, 17).padding(.horizontal,80).frame(height: 168)
+                }.padding(.vertical, 17).padding(.leading,80).frame(height: 168).padding(.trailing, 30)
                 TopRoundedRectangleView()
                     .overlay(
                         VStack(spacing: 30){
@@ -73,8 +95,8 @@ struct ExperimentIntroPageview: View {
                     Spacer()
                 }.padding(.horizontal,45).padding(.top,10).onTapGesture(perform: {
                     self.navigationStack.pop()
-            })
-            Spacer()
+                })
+                Spacer()
             }
         }.overlay(
             VStack {
@@ -112,7 +134,7 @@ struct ExperimentIntroPageview: View {
                         .onTapGesture(perform: {
                             showSheet.toggle()
                         })
-                       
+                        
                         .padding(.horizontal, 24)
                         .padding(.vertical, 10)
                     )
@@ -128,10 +150,25 @@ struct ExperimentIntroPageview: View {
             }
             , alignment: .bottom)
     }
+    
 }
 
 struct ExperimentIntroPageview_Previews: PreviewProvider {
     static var previews: some View {
-        ExperimentIntroPageview(title: "小球碰撞\n验证动量守恒定律实验", subject: "物理 - Physics")
+        ExperimentIntroPageview(liked: false, title: "小球碰撞\n验证动量守恒定律实验", subject: "物理 - Physics")
+    }
+}
+
+func decodeBackground(subject: String) -> String {
+    switch subject {
+    case "物理":
+        return "backgroundForPhysics"
+    case "化学":
+        return "backgroundForChemistry"
+    case "生物":
+        return "backgroundForBiology"
+    default:
+        return "backgroundCandidate"
+        
     }
 }

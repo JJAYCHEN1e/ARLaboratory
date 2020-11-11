@@ -15,14 +15,14 @@ struct ExpeCardBottomView: View {
     var body: some View {
         VStack(spacing : 0){
             HStack {
-                    Path{ path in
-                        path.move(to: CGPoint(x: 0, y: 2))
-                        path.addLine(to: CGPoint(x: 500, y: 2))
-                    }
-                    .stroke(style: StrokeStyle( lineWidth: 1, dash: [3,3] ))
-                        .foregroundColor(Color(#colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)))
+                Path{ path in
+                    path.move(to: CGPoint(x: 0, y: 2))
+                    path.addLine(to: CGPoint(x: 500, y: 2))
+                }
+                .stroke(style: StrokeStyle( lineWidth: 1, dash: [3,3] ))
+                .foregroundColor(Color(#colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)))
             }.frame( height: 4)
-                .clipped()
+            .clipped()
             HStack(alignment: .center) {
                 VStack(alignment: .leading) {
                     (score < 0 ? Text("首次挑战"): Text("历史成绩"))
@@ -30,7 +30,7 @@ struct ExpeCardBottomView: View {
                         .foregroundColor(Color(#colorLiteral(red: 0.4039215686, green: 0.4039215686, blue: 0.4039215686, alpha: 1)))
                         .kerning(1.4)
                     (score < 0 ? Text("动动小手，快来试试吧！") : Text("\(numberOfCorrectAnswers) of \(numberOfCorrectAnswers) Problems"))
-                            .gradeEffect()
+                        .gradeEffect()
                 }
                 Spacer()
                 if score<=0 {
