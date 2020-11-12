@@ -37,7 +37,9 @@ struct ExperimentIntroPageview: View {
                     Spacer()
                     VStack {
                         Spacer()
-                        Button(action:{}){
+                        Button(action:{
+                            self.navigationStack.push(ConvexLabViewControllerContainer())
+                        }){
                             RoundedRectangle(cornerRadius: 31).frame(width: 160, height: 40).foregroundColor(.white).overlay(
                                 Text("开始学习").font(Font.system(size: 18).weight(.semibold)).kerning(5).foregroundColor(Color(#colorLiteral(red: 0.5647058824, green: 0.3960784314, blue: 0.8666666667, alpha: 1)))
                             )

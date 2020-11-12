@@ -23,8 +23,10 @@ struct ARLaboratoryApp: App {
                             print("Family: \(family) Font names: \(names)")
                         }
                     })
+                    
                 
             }
+            .edgesIgnoringSafeArea(.all)
         }
     }
     
