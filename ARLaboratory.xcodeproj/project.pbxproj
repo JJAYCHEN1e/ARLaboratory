@@ -19,6 +19,7 @@
 		40A1FBCC2554D3AD00DDB69F /* LikedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A1FBCB2554D3AD00DDB69F /* LikedPageView.swift */; };
 		40A1FBCF2554F0E500DDB69F /* HelpInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A1FBCE2554F0E500DDB69F /* HelpInfoPage.swift */; };
 		40A1FBD22554F47300DDB69F /* PrivacyIntroPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A1FBD12554F47300DDB69F /* PrivacyIntroPageView.swift */; };
+		40B577EB255D025E00C71F87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B577EA255D025E00C71F87 /* AppDelegate.swift */; };
 		40C40BDA2553EB320064B704 /* TopRoundedRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C40BD92553EB320064B704 /* TopRoundedRectangleView.swift */; };
 		40CC4D7025567F4600D822FB /* ScorePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC4D6F25567F4600D822FB /* ScorePageView.swift */; };
 		40CC4D7F25568A3E00D822FB /* ScoreCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC4D7E25568A3D00D822FB /* ScoreCircleView.swift */; };
@@ -72,6 +73,7 @@
 		40A1FBCB2554D3AD00DDB69F /* LikedPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPageView.swift; sourceTree = "<group>"; };
 		40A1FBCE2554F0E500DDB69F /* HelpInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpInfoPage.swift; sourceTree = "<group>"; };
 		40A1FBD12554F47300DDB69F /* PrivacyIntroPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyIntroPageView.swift; sourceTree = "<group>"; };
+		40B577EA255D025E00C71F87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C40BD92553EB320064B704 /* TopRoundedRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedRectangleView.swift; sourceTree = "<group>"; };
 		40CC4D6F25567F4600D822FB /* ScorePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorePageView.swift; sourceTree = "<group>"; };
 		40CC4D7E25568A3D00D822FB /* ScoreCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCircleView.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				639E6E9F24DE55EF00073784 /* Colors.xcassets */,
 				633707C024DB14C2008256FC /* Info.plist */,
 				40FF3C7A25546C4D004C0797 /* ButtonManager.swift */,
+				40B577EA255D025E00C71F87 /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B577EB255D025E00C71F87 /* AppDelegate.swift in Sources */,
 				40D92CB624E39944002BF5D0 /* ProblemCard.swift in Sources */,
 				639E6E9B24DE423300073784 /* LatexTextView.swift in Sources */,
 				633707BA24DB14C1008256FC /* ContentView.swift in Sources */,

@@ -141,6 +141,10 @@ struct MainHomepageContentView_Previews: PreviewProvider {
 extension Array{
     func subArray(fromIndex: Int, endIndex: Int) -> Array {
         var tmp : Array = []
+        if endIndex < fromIndex {
+            return tmp
+            
+        }
         for i in fromIndex...endIndex{
             tmp.append(self[i])
         }
