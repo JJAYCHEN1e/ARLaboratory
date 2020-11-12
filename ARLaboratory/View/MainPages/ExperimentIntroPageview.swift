@@ -156,7 +156,7 @@ struct ExperimentIntroPageview: View {
                 , alignment: .bottom)
             .blur(radius: showSheet ? 5 : 0)
             CardViews( experimentName: title, showSheet: $showSheet)
-                .offset(y : showSheet ? 0 : 1000)
+                .offset(y : showSheet ? 0 : 2000)
         }
         
         
