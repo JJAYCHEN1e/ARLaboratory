@@ -691,6 +691,7 @@ class ConvexLabViewController: ARLabViewController {
         backgroundView.alpha = 0
         backgroundView.tag = 12345
         self.view.addSubview(backgroundView)
+        self.view.insertSubview(self.hintMessageLabelView, aboveSubview: backgroundView)
         
         let gestureAnimationView = AnimationView(name: "pinch_gesture2")
         gestureAnimationView.frame = backgroundView.bounds
