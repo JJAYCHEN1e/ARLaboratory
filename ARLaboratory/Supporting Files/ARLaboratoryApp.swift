@@ -10,7 +10,7 @@ import NavigationStack
 @main
 struct ARLaboratoryApp: App {
     @EnvironmentObject private var navigationStack: NavigationStack
-    
+    @ObservedObject var globalExperiments = GlobalExperiments()
     var body: some Scene {
         WindowGroup {
             NavigationStackView(){
@@ -18,10 +18,7 @@ struct ARLaboratoryApp: App {
                 MainHomePageView().onAppear(
                     perform: {
                         initSqlite()
-                        for family in UIFont.familyNames.sorted() {
-                            let names = UIFont.fontNames(forFamilyName: family)
-                            print("Family: \(family) Font names: \(names)")
-                        }
+
                     })
                     
                 

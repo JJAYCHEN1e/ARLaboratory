@@ -23,7 +23,7 @@ struct HomepageHeaderView: View {
                     Text("初中三年级").font(Font.system(size: 15).weight(.bold)).foregroundColor(.white)
                     Image("singleArrow").resizable().frame(width: 12, height: 7, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).offset(y:1)
                     Spacer()
-                    Text("SloganSloganSloganSloganSloganSloganSlogan")
+//                    Text("SloganSloganSloganSloganSloganSloganSlogan")
                         .foregroundColor(.white)
                         .padding(.horizontal,56)
                         .opacity( tabSelection == 3 ? 0 : 1 )

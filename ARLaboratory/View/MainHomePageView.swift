@@ -66,7 +66,7 @@ struct MainHomePageView: View {
                     .shadow(color: Color(#colorLiteral(red: 0.9254901961, green: 0.9254901961, blue: 0.9254901961, alpha: 0.11)), radius: 4, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
                     .shadow(color: Color(#colorLiteral(red: 0.8117647059, green: 0.8117647059, blue: 0.8117647059, alpha: 1)), radius: 20, x: 0, y: 10)
                     .overlay( HStack {
-                        Button(action: {                                withAnimation(.easeOut, {tabSelection=1})
+                        Button(action: {withAnimation(.easeOut, {tabSelection=1})
                         }) {
                             Rectangle()
                                 .frame(width: 31, height: 31, alignment: .center)
@@ -76,7 +76,7 @@ struct MainHomePageView: View {
                         
                         
                         Spacer()
-                        Button(action: {                                withAnimation(.easeOut, {tabSelection=2})
+                        Button(action: {withAnimation(.easeOut, {tabSelection=2})
                         }) {
                             Rectangle()
                                 .frame(width: 31, height: 31, alignment: .center)
