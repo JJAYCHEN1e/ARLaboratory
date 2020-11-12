@@ -52,7 +52,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["练习使用弹簧秤","物理", 1 ,0,8,"初中",-1,0,""])
                 try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["三棱镜分解太阳光实验","物理", 1 ,0,8,"初中",100,0,""])
                 try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["探究望远镜成像原理","物理", 2 ,0,8,"初中",46,0,""])
-                try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["牛顿力摆","物理", 2 ,0,8,"初中",97,0,""])
+                try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["小球碰撞验证动量守恒定律","物理", 2 ,0,8,"初中",97,0,""])
                 try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["苹果掉落之探索力的加速度","物理", 1 ,0,8,"初中",53,0,""])
                 
                 

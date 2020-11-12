@@ -61,10 +61,9 @@ struct ScoreView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal,154)
                     
-                Text("祝贺")
+                Text("祝 贺")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .kerning(16)
-                    .frame(width: 155, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .font(.system(size: 36))
                     .foregroundColor(Color("primaryColor"))
                     .padding(.top,9)
@@ -112,10 +111,10 @@ struct ScoreView: View {
                             .padding(.vertical,12)
                             Spacer()
                             RingView(percentage: showScoreCard ? (CGFloat(correctAnswers)/CGFloat(countOfProblems)) : 0, width: 44, score: Int((CGFloat(correctAnswers)/CGFloat(countOfProblems))*100))
-                                .animation(
-                                    Animation.interpolatingSpring(mass: 1, stiffness: 100, damping: 30, initialVelocity: 7)
-                                        .delay(0.8)
-                                )
+//                                .animation(
+//                                    Animation.interpolatingSpring(mass: 1, stiffness: 100, damping: 30, initialVelocity: 7)
+//                                        .delay(0.8)
+//                                )
                                 .padding(16)
                                 
                     })
@@ -152,7 +151,8 @@ struct ScoreView: View {
         .cornerRadius(9)
         .background(
             RoundedRectangle(cornerRadius: 9)
-            .foregroundColor(.white)                            .shadow(color: Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 0.82)), radius: 8, x: 2, y: 2).blur(radius: 0.2)
+                .foregroundColor(.white)
+                .shadow(color: Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 0.82)), radius: 8, x: 2, y: 2).blur(radius: 0.2)
                 )
 
     }
