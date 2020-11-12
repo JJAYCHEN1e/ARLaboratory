@@ -14,9 +14,11 @@ import Combine
 import Lottie
 
 struct ConvexLabViewControllerContainer: UIViewControllerRepresentable {
+    var leftAction: () -> Void
+    
     func makeUIViewController(context: Context) -> ConvexLabViewController {
         let convexLabViewController = ConvexLabViewController(
-            serviceType: "convex-lab")
+            serviceType: "convex-lab", leftAction: leftAction)
 
         return convexLabViewController
     }
@@ -28,7 +30,9 @@ struct ConvexLabViewControllerContainer: UIViewControllerRepresentable {
 
 class ConvexLabViewController: ARLabViewController {
     
+    
     // MARK: - Views
+    var leftButtonView: UIView!
     var collaborationButtonView: UIView!
     var statisticButtonView: UIView!
     var commonSettingButtonView: UIView?
@@ -185,6 +189,7 @@ class ConvexLabViewController: ARLabViewController {
         setupLoadedModel(model: loadedModel)
         
         setupButtons()
+        setUpLeftButtonView()
         setupCollaborationSettingView()
         setupStatisticView()
 //        setupCommonSettingView()
@@ -340,6 +345,17 @@ class ConvexLabViewController: ARLabViewController {
 //        }.view
 //        self.setupSettingButton()
         // Setup after confirm
+    }
+    
+    func setUpLeftButtonView() {
+        self.leftButtonView = generateARButton(systemName: "arrow.uturn.backward") {
+            self.leftAction?()
+        } contrainGenerator: { hostingView in
+            [
+                hostingView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+                hostingView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
+            ]
+        }.view
     }
     
     func setupCollaborationSettingView() {
@@ -672,8 +688,8 @@ class ConvexLabViewController: ARLabViewController {
         backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         backgroundView.frame = self.view.bounds
         backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         backgroundView.alpha = 0
+        backgroundView.tag = 12345
         self.view.addSubview(backgroundView)
         
         let gestureAnimationView = AnimationView(name: "pinch_gesture2")
@@ -681,7 +697,6 @@ class ConvexLabViewController: ARLabViewController {
         gestureAnimationView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundView.addSubview(gestureAnimationView)
         gestureAnimationView.alpha = 0
-        
         UIView.transition(with: backgroundView, duration: 0.5, options: .curveEaseInOut, animations: {
             backgroundView.alpha = 1
         }, completion: { completed in
@@ -703,6 +718,25 @@ class ConvexLabViewController: ARLabViewController {
                 }
             }
         })
+        
+        backgroundView.addGestureRecognizer(
+            UITapGestureRecognizer(
+            target: self,
+            action: #selector(touchDownAction(recognizer:))
+        ))
+    }
+    
+    @objc
+    private func touchDownAction(recognizer: UITapGestureRecognizer) {
+        for view in self.view.subviews where view.tag == 12345 {
+            UIView.transition(with: view, duration: 0.5, options: .curveEaseInOut, animations: {
+                view.alpha = 0
+            }, completion: { completed in
+                if completed {
+                    view.removeFromSuperview()
+                }
+            })
+        }
     }
     
     // MARK: - Model Setups

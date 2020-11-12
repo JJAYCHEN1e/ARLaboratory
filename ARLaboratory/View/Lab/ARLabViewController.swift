@@ -13,16 +13,18 @@ import MultipeerConnectivity
 class ARLabViewController: UIViewController {
     var arView: ARView!
     
+    var leftAction: (() -> Void)?
     private(set) var serviceType: String?
     private(set) var multipeerSession: MultipeerSession?
     var peerName = [MCPeerID: String]()
     
     let coachingOverlay = ARCoachingOverlayView()
     
-    convenience init(serviceType: String?) {
+    convenience init(serviceType: String?, leftAction: (() -> Void)?) {
         self.init(nibName: nil, bundle: nil)
         
         self.serviceType = serviceType
+        self.leftAction = leftAction
     }
     
     override func viewDidLoad() {
@@ -118,3 +120,4 @@ extension ARLabViewController: ARCoachingOverlayViewDelegate {
         ])
     }
 }
+
