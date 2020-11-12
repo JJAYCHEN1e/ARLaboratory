@@ -82,50 +82,52 @@ struct MainHomepageContentView: View {
                 
                 
                 SubtitleComponent(str: "推荐实验").padding(.horizontal,53).padding(.vertical,10).padding(.top,10)
+                ScrollView {
                     HStack(alignment: .top,spacing: 0){
-                        
-                        LazyVStack{
-                            ForEach(0..<list1.count, id: \.self){ index in
-                                let experiment = list1[index]
-                                if index == 0 {
-                                    ExperimentCardView(title: "5大实验揭秘“力”", subject: "", chapter: -1, image: "5大实验揭秘“力”", column: "物理", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
+                            
+                            LazyVStack{
+                                ForEach(0..<list1.count, id: \.self){ index in
+                                    let experiment = list1[index]
+                                    if index == 0 {
+                                        ExperimentCardView(title: "5大实验揭秘“力”", subject: "", chapter: -1, image: "5大实验揭秘“力”", column: "物理", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
+                                        
+                                    }
                                     
+                                    ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
                                 }
                                 
-                                ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
-                            }
                             
-                        
+                                Spacer()
+                            }
                             Spacer()
-                        }
-                        Spacer()
-                        LazyVStack{
-                            ForEach(0..<list2.count, id: \.self){ index in
-                                let experiment = list2[index]
-                                if index == 2 {
-                                    ExperimentCardView(title: "生物实验大全", subject: "", chapter: -1, image: "生物实验大全", column: "生物", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
-                                    
+                            LazyVStack{
+                                ForEach(0..<list2.count, id: \.self){ index in
+                                    let experiment = list2[index]
+                                    if index == 2 {
+                                        ExperimentCardView(title: "生物实验大全", subject: "", chapter: -1, image: "生物实验大全", column: "生物", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
+                                        
+                                    }
+                                    ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
                                 }
-                                ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
+                                
+                                Spacer()
                             }
-                            
                             Spacer()
-                        }
-                        Spacer()
-                        LazyVStack{
-                            ForEach(0..<list3.count, id: \.self){ index in
-                                let experiment = list3[index]
-                                if index == 1 {
-                                    ExperimentCardView(title: "经典化学实验", subject: "", chapter: -1, image: "经典化学实验", column: "化学", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
-                                    
+                            LazyVStack{
+                                ForEach(0..<list3.count, id: \.self){ index in
+                                    let experiment = list3[index]
+                                    if index == 1 {
+                                        ExperimentCardView(title: "经典化学实验", subject: "", chapter: -1, image: "经典化学实验", column: "化学", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
+                                        
+                                    }
+                                    ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
                                 }
-                                ExperimentCardView(title: experiment.title, subject: experiment.subject, chapter: experiment.chapter, image: experiment.image, column: "", numbersOfProblems: experiment.numbersOfProblems, numbersOfCorrectAnswers: experiment.numbersOfCorectAnswer, score: experiment.score, showBottom: false, liked: experiment.liked,  showArrow: true)
+                                
+                                Spacer()
                             }
                             
-                            Spacer()
-                        }
-                        
                     }.padding(.horizontal, 44).padding(.bottom,70)
+                }
                 
             }
         
