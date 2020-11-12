@@ -18,7 +18,7 @@ struct ARLaboratoryApp: App {
                 
                 MainHomePageView()
                 
-            }
+            }.edgesIgnoringSafeArea(.all)
         }
     }
     
