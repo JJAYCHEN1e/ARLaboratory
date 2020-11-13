@@ -40,11 +40,13 @@ struct ExperimentIntroPageview: View {
                         VStack {
                             Spacer()
                             HStack(spacing: 20) {
-                                Button(action:{
-                                                                    self.navigationStack.push(ConvexLabViewControllerContainer(leftAction: {
-                                                                        self.navigationStack.pop()
-                                                                    }))
-                                }){
+                                Button(action: {}
+                                {
+                                    self.navigationStack.push(ConvexLabViewControllerContainer(leftAction: {
+                                        self.navigationStack.pop()
+                                    }))
+                                }
+                                ){
                                     RoundedRectangle(cornerRadius: 31).frame(width: 150, height: 40).foregroundColor(.white).overlay(
                                         Text("开始学习").font(Font.system(size: 18).weight(.semibold)).kerning(4).foregroundColor(Color(#colorLiteral(red: 0.5647058824, green: 0.3960784314, blue: 0.8666666667, alpha: 1)))
                                     )
@@ -70,40 +72,61 @@ struct ExperimentIntroPageview: View {
                             
                             
                         }
-                    }.padding(.vertical, 17).padding(.leading,80).frame(height: 168).padding(.trailing, 30)
+                    }.ignoresSafeArea()
+                    .padding(.vertical, 17).padding(.leading,80).frame(height: 168).padding(.trailing, 30).padding(.top, 25)
                     TopRoundedRectangleView()
                         .overlay(
-                            VStack(spacing: 30){
-                                VStack(spacing: 20){
-                                    SubtitleComponent(str: "实验目标",fontSize: 22)
-                                    Group {
-                                        Text("\t物理学中许多守恒的知识点，其中有个较为基础的是动量守恒，其描述为：在一个系统中，如果没有任何外力做功，那么该系统中各个物体的动量之和一定是守恒的。如果只有两个物体m1和m2，那么有一段时间前后")
-                                        LatexTextView(text: "$m_1v_1+m_2v_2=m_1v\\prime_1m_2v\\prime_2$", fontSize: 20,fontColor: UIColor.init(fromHexString: "#848484"))
-                                        Text("\t在实验具体操作中，我们使用两个小球的碰撞前后的系统动量和的变化情况，来验证动量守恒实验。")
-                                    }.padding(.horizontal,25).font(Font.system(size: 17).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 1))).lineSpacing(7)
-                                }
-                                VStack(spacing: 20){
-                                    SubtitleComponent(str: "实验步骤",fontSize: 22)
-                                    VStack(spacing: 15) {
-                                        Text("\t在我们的应用中，我们已经消除了整个系统中的摩擦力，我们将预置的小球设置为刚性小球（即碰撞前后不发生能量损失")
-                                        Text("1. 学生在应用寻找到平面后，在桌面上放置两个小球\n2. 点击小球即可设置小球初始的速度，同时也可以设置小球的质量，从而可以进行安排多组实验探究实验结果\n3. 点击开始按钮即可使得小球按照设置好的质量和初速度运动起来\n4. 应用会自动记录下两个小球碰撞前后的速度大小，并可以供学生随时查询\n5. 学生设计多组实验，归纳实验结果，得出结论").padding(.leading, 25)
+                            ScrollView {
+                                LazyVStack(spacing: 30){
+                                    VStack(spacing: 20){
+                                        VStack(spacing: 10){
+                                            SubtitleComponent(str: "实验目标",fontSize: 22)
+                                            
+                                            Text("\t探究凸透镜成像规律是初中光学部分的重中之重，呈现规律较多，变化相对复杂。从能力要求来看，对学生的抽象思维能力、探究实验设计能力、动手能力以及测量能力、分析和归纳能力都是一个考验，是一个完整的探究题目。我们需要通过这项实验完成以下两个目标：")
+                                            
+                                            Text("\t1.  通过观察和实验，加深对实验和虚像的认识，收集有关凸透镜成像规律的数据和资料。\n\t2.  观察凸透镜成像的有关现象和收集实验数据，并从中归纳出凸透镜成像的规律。")
+                                        }.font(Font.system(size: 17).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 1))).lineSpacing(7)
+                                    }
+                                    VStack(spacing: 10) {
+                                        SubtitleComponent(str: "实验表格",fontSize: 22)
+                                        Image("convex_lab_table").resizable().frame(width: 500,height: 170).padding()
                                         
-                                    }.padding(.horizontal,25).font(Font.system(size: 17).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 1))).lineSpacing(7)
-                                }
-                                Spacer()
-                            }.padding(.top, 50).padding(.horizontal,73)
+                                    }
+                                    
+                                    
+                                    
+                                    VStack(spacing: 20){
+                                        SubtitleComponent(str: "实验步骤",fontSize: 22)
+                                        VStack(alignment: .leading, spacing: 15) {
+                                            Text("\t在我们的应用中，我们已经消除了整个系统中的摩擦力，我们将预置的小球设置为刚性小球（即碰撞前后不发生能量损失")
+                                            Group{
+                                                Text("1.  把透镜放在光具座标尺中回央答,从透镜的位置开始在左右两边的标尺上用粉笔标出等于焦距和2倍焦距的位置.")
+                                                Text("2.  点燃蜡烛,调整它们的高度,使烛焰、凸透镜、光屏的中心大致在同一高度.")
+                                                
+                                                Text("3.  把蜡烛放在离凸透镜尽量远的位置上,调整光屏到透镜的距离,使烛焰在屏上成一个清晰的像,观察像的大小、正倒,测出蜡烛与凸透镜、凸透镜与光屏间的距离.把数据记录在表格中.")
+                                                Text("4.  继续把蜡烛向凸透镜靠近,观察像的变化是放大还是缩小,是正立还是倒立,蜡烛与凸透镜、凸透镜与光屏的距离测出,将数据记录在表格中.")
+                                                Text("5.  当蜡烛到一定位置上时,光屏没有像,用眼睛直接对着凸透镜观察蜡烛的像,把蜡烛与凸透镜、像与凸透镜的距离,像是放大还是缩小的,像的正倒,填入表格中。")
+                                                
+                                            }.padding(.leading, 10)
+                                            
+                                        }.padding(.horizontal,25).font(Font.system(size: 17).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 1))).lineSpacing(7)
+                                    }
+                                    Spacer()
+                                }.padding(.top, 50).padding(.horizontal,73)
+                            }
                         )
                 }
                 VStack {
                     HStack {
                         Image("back").resizable().frame(width: 48, height: 48)
                         Spacer()
-                    }.padding(.horizontal,45).padding(.top,10).onTapGesture(perform: {
+                    }.padding(.horizontal,45).padding(.top,35).onTapGesture(perform: {
                         self.navigationStack.pop()
                     })
                     Spacer()
                 }
-            }.overlay(
+            }
+            .overlay(
                 VStack {
                     Spacer()
                     RoundedRectangle(cornerRadius: 15)
@@ -166,7 +189,7 @@ struct ExperimentIntroPageview: View {
 
 struct ExperimentIntroPageview_Previews: PreviewProvider {
     static var previews: some View {
-        ExperimentIntroPageview(liked: false, title: "小球碰撞\n验证动量守恒定律实验", subject: "物理 - Physics")
+        ExperimentIntroPageview(liked: false, title: "小球碰撞\n验证动量守恒定律实验", subject: "物理")
     }
 }
 

@@ -12,6 +12,25 @@
 		4035C7092551A04E005B59B9 /* MainHomepageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035C7082551A04E005B59B9 /* MainHomepageContentView.swift */; };
 		403976B925529322007D0A35 /* HomepageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403976B825529322007D0A35 /* HomepageHeaderView.swift */; };
 		403F7A3725528EFB006642C7 /* StoreMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F7A3625528EFB006642C7 /* StoreMainPage.swift */; };
+		4073786E255EE1A500B5E1E6 /* ConvexLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0EE255C2EE000B142AE /* ConvexLabViewController.swift */; };
+		4073786F255EE1A500B5E1E6 /* pinch_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 63A5A111255C2F7D00B142AE /* pinch_gesture.json */; };
+		40737870255EE1A500B5E1E6 /* CautionCircleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A103255C2F6200B142AE /* CautionCircleModifier.swift */; };
+		40737871255EE1A500B5E1E6 /* ConvexLabStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0F4255C2EF100B142AE /* ConvexLabStatisticView.swift */; };
+		40737872255EE1A500B5E1E6 /* TopLeftPopoverWithArrowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A104255C2F6200B142AE /* TopLeftPopoverWithArrowModifier.swift */; };
+		40737873255EE1A500B5E1E6 /* HintMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0FA255C2F0C00B142AE /* HintMessageLabel.swift */; };
+		40737874255EE1A500B5E1E6 /* DistanceLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A10A255C2F6B00B142AE /* DistanceLabelView.swift */; };
+		40737875255EE1A500B5E1E6 /* Circle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 63A5A0E9255C2EBD00B142AE /* Circle.usdz */; };
+		40737876255EE1A500B5E1E6 /* pinch_gesture2.json in Resources */ = {isa = PBXBuildFile; fileRef = 63A5A112255C2F7D00B142AE /* pinch_gesture2.json */; };
+		40737877255EE1A500B5E1E6 /* ConvexLabStateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A113255C2F7D00B142AE /* ConvexLabStateEntity.swift */; };
+		40737878255EE1A500B5E1E6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633BF442255C31F90000FD0B /* Utilities.swift */; };
+		40737879255EE1A500B5E1E6 /* ConvexLabCommonSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A10E255C2F7600B142AE /* ConvexLabCommonSettingView.swift */; };
+		4073787A255EE1A500B5E1E6 /* Convex_new.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 63A5A0EA255C2EBD00B142AE /* Convex_new.usdz */; };
+		4073787B255EE1A500B5E1E6 /* MessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0FB255C2F0C00B142AE /* MessageLabel.swift */; };
+		4073787C255EE1A500B5E1E6 /* MultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0FC255C2F0C00B142AE /* MultipeerSession.swift */; };
+		4073787D255EE1A500B5E1E6 /* LeftPopoverWithArrowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A101255C2F6100B142AE /* LeftPopoverWithArrowModifier.swift */; };
+		4073787E255EE1A500B5E1E6 /* CollaborationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0F1255C2EE700B142AE /* CollaborationSettingView.swift */; };
+		4073787F255EE1A500B5E1E6 /* ARButtonWithBlurBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A102255C2F6100B142AE /* ARButtonWithBlurBackground.swift */; };
+		40737880255EE1A500B5E1E6 /* ARLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0E6255C2EA900B142AE /* ARLabViewController.swift */; };
 		4091D17C2554AA8F006E0A06 /* AccountPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4091D17B2554AA8F006E0A06 /* AccountPageView.swift */; };
 		4091D18B2554BA13006E0A06 /* FunctionBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4091D18A2554BA13006E0A06 /* FunctionBarView.swift */; };
 		4092D840255299E700C68C73 /* SubtitleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092D83F255299E700C68C73 /* SubtitleComponent.swift */; };
@@ -45,7 +64,6 @@
 		633707BA24DB14C1008256FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633707B924DB14C1008256FC /* ContentView.swift */; };
 		633707BC24DB14C2008256FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BB24DB14C2008256FC /* Assets.xcassets */; };
 		633707BF24DB14C2008256FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BE24DB14C2008256FC /* Preview Assets.xcassets */; };
-		633BF443255C31F90000FD0B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633BF442255C31F90000FD0B /* Utilities.swift */; };
 		6354F5A324E53C62007D4D21 /* ImportColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6354F5A224E53C62007D4D21 /* ImportColumn.swift */; };
 		635611E1255EBAC1002D41AE /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635611E0255EBAC1002D41AE /* LottieView.swift */; };
 		635611E4255EBFF5002D41AE /* confetti-blast.json in Resources */ = {isa = PBXBuildFile; fileRef = 635611E3255EBFF5002D41AE /* confetti-blast.json */; };
@@ -59,24 +77,6 @@
 		639E6EA124DE57C300073784 /* Constants+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E6E9D24DE43A700073784 /* Constants+Color.swift */; };
 		639E6EA324DE60E300073784 /* ColumnHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E6EA224DE60E300073784 /* ColumnHeadView.swift */; };
 		63A5A0E4255C2E9D00B142AE /* Calculation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0E3255C2E9D00B142AE /* Calculation+Extension.swift */; };
-		63A5A0E7255C2EA900B142AE /* ARLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0E6255C2EA900B142AE /* ARLabViewController.swift */; };
-		63A5A0EB255C2EBD00B142AE /* Circle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 63A5A0E9255C2EBD00B142AE /* Circle.usdz */; };
-		63A5A0EC255C2EBD00B142AE /* Convex_new.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 63A5A0EA255C2EBD00B142AE /* Convex_new.usdz */; };
-		63A5A0EF255C2EE000B142AE /* ConvexLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0EE255C2EE000B142AE /* ConvexLabViewController.swift */; };
-		63A5A0F2255C2EE700B142AE /* CollaborationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0F1255C2EE700B142AE /* CollaborationSettingView.swift */; };
-		63A5A0F5255C2EF100B142AE /* ConvexLabStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0F4255C2EF100B142AE /* ConvexLabStatisticView.swift */; };
-		63A5A0FD255C2F0C00B142AE /* HintMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0FA255C2F0C00B142AE /* HintMessageLabel.swift */; };
-		63A5A0FE255C2F0C00B142AE /* MessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0FB255C2F0C00B142AE /* MessageLabel.swift */; };
-		63A5A0FF255C2F0C00B142AE /* MultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A0FC255C2F0C00B142AE /* MultipeerSession.swift */; };
-		63A5A105255C2F6200B142AE /* LeftPopoverWithArrowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A101255C2F6100B142AE /* LeftPopoverWithArrowModifier.swift */; };
-		63A5A106255C2F6200B142AE /* ARButtonWithBlurBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A102255C2F6100B142AE /* ARButtonWithBlurBackground.swift */; };
-		63A5A107255C2F6200B142AE /* CautionCircleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A103255C2F6200B142AE /* CautionCircleModifier.swift */; };
-		63A5A108255C2F6200B142AE /* TopLeftPopoverWithArrowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A104255C2F6200B142AE /* TopLeftPopoverWithArrowModifier.swift */; };
-		63A5A10B255C2F6B00B142AE /* DistanceLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A10A255C2F6B00B142AE /* DistanceLabelView.swift */; };
-		63A5A10F255C2F7600B142AE /* ConvexLabCommonSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A10E255C2F7600B142AE /* ConvexLabCommonSettingView.swift */; };
-		63A5A114255C2F7D00B142AE /* pinch_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 63A5A111255C2F7D00B142AE /* pinch_gesture.json */; };
-		63A5A115255C2F7D00B142AE /* pinch_gesture2.json in Resources */ = {isa = PBXBuildFile; fileRef = 63A5A112255C2F7D00B142AE /* pinch_gesture2.json */; };
-		63A5A116255C2F7D00B142AE /* ConvexLabStateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5A113255C2F7D00B142AE /* ConvexLabStateEntity.swift */; };
 		FA7E9522460ABC3BAF4A9B39 /* Pods_ARLaboratory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F1A11778A165D6C64BF1B /* Pods_ARLaboratory.framework */; };
 /* End PBXBuildFile section */
 
@@ -451,14 +451,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				639E6EA024DE55EF00073784 /* Colors.xcassets in Resources */,
-				63A5A115255C2F7D00B142AE /* pinch_gesture2.json in Resources */,
-				63A5A0EB255C2EBD00B142AE /* Circle.usdz in Resources */,
+				4073787A255EE1A500B5E1E6 /* Convex_new.usdz in Resources */,
 				633707BF24DB14C2008256FC /* Preview Assets.xcassets in Resources */,
 				635611E4255EBFF5002D41AE /* confetti-blast.json in Resources */,
-				633707BC24DB14C2008256FC /* Assets.xcassets in Resources */,
 				638C4641255EDDA9006401DC /* confetti-blast-2.json in Resources */,
-				63A5A114255C2F7D00B142AE /* pinch_gesture.json in Resources */,
-				63A5A0EC255C2EBD00B142AE /* Convex_new.usdz in Resources */,
+				4073786F255EE1A500B5E1E6 /* pinch_gesture.json in Resources */,
+				40737876255EE1A500B5E1E6 /* pinch_gesture2.json in Resources */,
+				633707BC24DB14C2008256FC /* Assets.xcassets in Resources */,
+				40737875255EE1A500B5E1E6 /* Circle.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,65 +512,65 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D92CB624E39944002BF5D0 /* ProblemCard.swift in Sources */,
+				40737874255EE1A500B5E1E6 /* DistanceLabelView.swift in Sources */,
 				639E6E9B24DE423300073784 /* LatexTextView.swift in Sources */,
 				633707BA24DB14C1008256FC /* ContentView.swift in Sources */,
 				40A1FBCF2554F0E500DDB69F /* HelpInfoPage.swift in Sources */,
-				63A5A0FE255C2F0C00B142AE /* MessageLabel.swift in Sources */,
 				40FC9C06254AB63C0033F84B /* ExpeCardBottomView.swift in Sources */,
 				40FC9C02254944000033F84B /* ExperimentCardView.swift in Sources */,
-				63A5A107255C2F6200B142AE /* CautionCircleModifier.swift in Sources */,
 				63061C8724E40F0F001DEB43 /* LabIntroView.swift in Sources */,
 				40CC4D7F25568A3E00D822FB /* ScoreCircleView.swift in Sources */,
-				63A5A0E7255C2EA900B142AE /* ARLabViewController.swift in Sources */,
 				40C40BDA2553EB320064B704 /* TopRoundedRectangleView.swift in Sources */,
-				63A5A10F255C2F7600B142AE /* ConvexLabCommonSettingView.swift in Sources */,
 				639E6EA324DE60E300073784 /* ColumnHeadView.swift in Sources */,
-				63A5A106255C2F6200B142AE /* ARButtonWithBlurBackground.swift in Sources */,
 				6370B85824DE8F5E00DC43E5 /* RecommandColumn.swift in Sources */,
+				40737870255EE1A500B5E1E6 /* CautionCircleModifier.swift in Sources */,
 				6370B85A24DEE01100DC43E5 /* SubjectColumn.swift in Sources */,
 				403976B925529322007D0A35 /* HomepageHeaderView.swift in Sources */,
+				40737878255EE1A500B5E1E6 /* Utilities.swift in Sources */,
 				63A5A0E4255C2E9D00B142AE /* Calculation+Extension.swift in Sources */,
 				40FF3C7B25546C4D004C0797 /* ButtonManager.swift in Sources */,
 				63061C8024E2B25C001DEB43 /* CustomNavigationLinkModifier.swift in Sources */,
 				40D92CB524E39944002BF5D0 /* CardViews.swift in Sources */,
-				63A5A116255C2F7D00B142AE /* ConvexLabStateEntity.swift in Sources */,
+				4073787C255EE1A500B5E1E6 /* MultipeerSession.swift in Sources */,
 				6370B85C24DF926F00DC43E5 /* FavoriteColumn.swift in Sources */,
 				635611E1255EBAC1002D41AE /* LottieView.swift in Sources */,
 				63061C7224E1507B001DEB43 /* Subject.swift in Sources */,
 				4035C70425519F3F005B59B9 /* MainHomePageView.swift in Sources */,
-				63A5A0FD255C2F0C00B142AE /* HintMessageLabel.swift in Sources */,
+				40737873255EE1A500B5E1E6 /* HintMessageLabel.swift in Sources */,
 				63061C6D24E119F1001DEB43 /* SubjectView.swift in Sources */,
 				40AB27B5255D4F9B002D617F /* ScoreView.swift in Sources */,
-				63A5A0FF255C2F0C00B142AE /* MultipeerSession.swift in Sources */,
 				63061C8524E2D03B001DEB43 /* ResponsiveButtonStyle.swift in Sources */,
 				4035C7092551A04E005B59B9 /* MainHomepageContentView.swift in Sources */,
 				63061C7424E15095001DEB43 /* Lab.swift in Sources */,
 				639E6EA124DE57C300073784 /* Constants+Color.swift in Sources */,
-				63A5A108255C2F6200B142AE /* TopLeftPopoverWithArrowModifier.swift in Sources */,
 				4091D18B2554BA13006E0A06 /* FunctionBarView.swift in Sources */,
 				4092D840255299E700C68C73 /* SubtitleComponent.swift in Sources */,
+				4073787E255EE1A500B5E1E6 /* CollaborationSettingView.swift in Sources */,
+				4073787B255EE1A500B5E1E6 /* MessageLabel.swift in Sources */,
 				402C943825427CE100409124 /* ExpInfo.swift in Sources */,
-				63A5A0EF255C2EE000B142AE /* ConvexLabViewController.swift in Sources */,
-				63A5A105255C2F6200B142AE /* LeftPopoverWithArrowModifier.swift in Sources */,
-				63A5A10B255C2F6B00B142AE /* DistanceLabelView.swift in Sources */,
+				4073786E255EE1A500B5E1E6 /* ConvexLabViewController.swift in Sources */,
+				40737877255EE1A500B5E1E6 /* ConvexLabStateEntity.swift in Sources */,
 				40A1FBCC2554D3AD00DDB69F /* LikedPageView.swift in Sources */,
 				63061C7E24E2B0D6001DEB43 /* UINavigationController+Swipe.swift in Sources */,
 				4091D17C2554AA8F006E0A06 /* AccountPageView.swift in Sources */,
 				63061C7824E277A1001DEB43 /* Constants+Device.swift in Sources */,
 				40AB27BD255D4FC8002D617F /* ExperimentIntroPageview.swift in Sources */,
-				633BF443255C31F90000FD0B /* Utilities.swift in Sources */,
 				40D92CB024E39934002BF5D0 /* Problem.swift in Sources */,
 				633707B824DB14C1008256FC /* ARLaboratoryApp.swift in Sources */,
 				40AB27B9255D4FAE002D617F /* AppDelegate.swift in Sources */,
 				63061C6F24E120C9001DEB43 /* SubjectHeadView.swift in Sources */,
+				4073787D255EE1A500B5E1E6 /* LeftPopoverWithArrowModifier.swift in Sources */,
 				40CC4D7025567F4600D822FB /* ScorePageView.swift in Sources */,
+				4073787F255EE1A500B5E1E6 /* ARButtonWithBlurBackground.swift in Sources */,
 				63061C8424E2BF7F001DEB43 /* NavigationConfigurator.swift in Sources */,
 				40D92CB724E39944002BF5D0 /* ChoiceCell.swift in Sources */,
 				403F7A3725528EFB006642C7 /* StoreMainPage.swift in Sources */,
+				40737880255EE1A500B5E1E6 /* ARLabViewController.swift in Sources */,
+				40737871255EE1A500B5E1E6 /* ConvexLabStatisticView.swift in Sources */,
+				40737872255EE1A500B5E1E6 /* TopLeftPopoverWithArrowModifier.swift in Sources */,
+				40737879255EE1A500B5E1E6 /* ConvexLabCommonSettingView.swift in Sources */,
 				6354F5A324E53C62007D4D21 /* ImportColumn.swift in Sources */,
 				639E6E9824DDB23000073784 /* Constants+Screen.swift in Sources */,
-				63A5A0F5255C2EF100B142AE /* ConvexLabStatisticView.swift in Sources */,
-				63A5A0F2255C2EE700B142AE /* CollaborationSettingView.swift in Sources */,
 				40A1FBD22554F47300DDB69F /* PrivacyIntroPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

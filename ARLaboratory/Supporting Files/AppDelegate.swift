@@ -41,6 +41,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             if !db.tableExists("experiment"){
                 try db.executeUpdate("create table experiment(title TEXT PRIMARY KEY,subject TEXT,chapter INT,problems INT,correctAnswers INT,score INT,level TEXT,liked INT,column TEXT)", values: nil)
                 
+                try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["探究凸透镜成像规律","物理", 1 ,0,6,"初中",-1,0,""])
+
                 try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["观察种子细胞","生物",1,0,8,"初中",100,0,""])
                 try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["检测生物组织中的DNA","生物",1,0,8,"高中",24,0,""])
                 try db.executeUpdate("insert into experiment(title,subject,chapter,correctAnswers,problems,level,score,liked,column) values (?,?,?,?,?,?,?,?,?)",values:["血红蛋白的提取和分离","生物", 1 ,0,8,"高中",57,0,""])

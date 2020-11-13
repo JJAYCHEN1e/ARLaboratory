@@ -102,6 +102,35 @@ class GlobalExperiments: ObservableObject {
         return tmp
     }
     
+    func updateScoreForExperiment(title: String, score: Int , correctAnswers: Int){
+        
+        let dbPath = try! FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("ARLaboratory.sqlite")
+        let db = FMDatabase(url: dbPath)
+        print(dbPath)
+        guard db.open() else {
+            print("Unable to open database")
+            return
+        }
+        print("DataBase opened successfully")
+        do{
+            try db.executeUpdate("update experiment set score = \(score) , correctAnswers = \(correctAnswers) where title = \""+title+"\"", values: nil)
+            print("update successfully")
+        }catch{
+            print("failed\(error.localizedDescription)")
+        }
+        db.close()
+        
+        for i in 0..<experiments.count{
+            if experiments[i].title == title {
+                experiments[i].score = score
+                break
+            }
+        }
+        return
+        
+    }
+    
+    
 }
 
 
