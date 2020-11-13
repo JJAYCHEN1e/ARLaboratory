@@ -22,13 +22,14 @@ struct ScoreView: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .center)
         ) {
+            
             Image("scoreViewBackground")
                 .resizable()
                 
                 Image("Medal")
                     .resizable()
                     .frame(width: twinkle ? 100 : 127, height: twinkle ? 122 : 155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .opacity(twinkle ? 0.7 : 1)
+                    .opacity(twinkle ? 0.9 : 1)
                     .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     .onReceive(timer) { _ in
                         self.twinkle.toggle()
@@ -153,6 +154,8 @@ struct ScoreView: View {
             .padding(.trailing , 22)
             .padding(.top , 22)
             .zIndex(1.0)
+            
+            LottieView(lottieFileName: "confetti-blast-2", play: $showScoreCard)
         }.frame(width: 553, height: 769, alignment: .top)
         .cornerRadius(9)
         .background(

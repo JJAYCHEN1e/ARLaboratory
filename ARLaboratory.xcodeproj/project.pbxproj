@@ -65,9 +65,12 @@
 		633707BC24DB14C2008256FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BB24DB14C2008256FC /* Assets.xcassets */; };
 		633707BF24DB14C2008256FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633707BE24DB14C2008256FC /* Preview Assets.xcassets */; };
 		6354F5A324E53C62007D4D21 /* ImportColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6354F5A224E53C62007D4D21 /* ImportColumn.swift */; };
+		635611E1255EBAC1002D41AE /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635611E0255EBAC1002D41AE /* LottieView.swift */; };
+		635611E4255EBFF5002D41AE /* confetti-blast.json in Resources */ = {isa = PBXBuildFile; fileRef = 635611E3255EBFF5002D41AE /* confetti-blast.json */; };
 		6370B85824DE8F5E00DC43E5 /* RecommandColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B85724DE8F5E00DC43E5 /* RecommandColumn.swift */; };
 		6370B85A24DEE01100DC43E5 /* SubjectColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B85924DEE01100DC43E5 /* SubjectColumn.swift */; };
 		6370B85C24DF926F00DC43E5 /* FavoriteColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B85B24DF926F00DC43E5 /* FavoriteColumn.swift */; };
+		638C4641255EDDA9006401DC /* confetti-blast-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 638C4640255EDDA9006401DC /* confetti-blast-2.json */; };
 		639E6E9824DDB23000073784 /* Constants+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E6E9724DDB23000073784 /* Constants+Screen.swift */; };
 		639E6E9B24DE423300073784 /* LatexTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E6E9A24DE423300073784 /* LatexTextView.swift */; };
 		639E6EA024DE55EF00073784 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 639E6E9F24DE55EF00073784 /* Colors.xcassets */; };
@@ -122,10 +125,13 @@
 		633707C024DB14C2008256FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		633BF442255C31F90000FD0B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6354F5A224E53C62007D4D21 /* ImportColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportColumn.swift; sourceTree = "<group>"; };
+		635611E0255EBAC1002D41AE /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		635611E3255EBFF5002D41AE /* confetti-blast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "confetti-blast.json"; sourceTree = "<group>"; };
 		6370B85724DE8F5E00DC43E5 /* RecommandColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandColumn.swift; sourceTree = "<group>"; };
 		6370B85924DEE01100DC43E5 /* SubjectColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectColumn.swift; sourceTree = "<group>"; };
 		6370B85B24DF926F00DC43E5 /* FavoriteColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteColumn.swift; sourceTree = "<group>"; };
 		6370B86124DFDBF700DC43E5 /* ResponsiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsiveButtonStyle.swift; sourceTree = "<group>"; };
+		638C4640255EDDA9006401DC /* confetti-blast-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "confetti-blast-2.json"; sourceTree = "<group>"; };
 		639E6E9724DDB23000073784 /* Constants+Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Screen.swift"; sourceTree = "<group>"; };
 		639E6E9A24DE423300073784 /* LatexTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatexTextView.swift; sourceTree = "<group>"; };
 		639E6E9D24DE43A700073784 /* Constants+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Color.swift"; sourceTree = "<group>"; };
@@ -215,6 +221,8 @@
 		40D92CB124E39944002BF5D0 /* Q&A Page */ = {
 			isa = PBXGroup;
 			children = (
+				635611E3255EBFF5002D41AE /* confetti-blast.json */,
+				638C4640255EDDA9006401DC /* confetti-blast-2.json */,
 				40AB27B4255D4F9B002D617F /* ScoreView.swift */,
 				40D92CB224E39944002BF5D0 /* CardViews.swift */,
 				40D92CB324E39944002BF5D0 /* ProblemCard.swift */,
@@ -237,6 +245,7 @@
 			children = (
 				639E6E9A24DE423300073784 /* LatexTextView.swift */,
 				63061C8324E2BF7F001DEB43 /* NavigationConfigurator.swift */,
+				635611E0255EBAC1002D41AE /* LottieView.swift */,
 			);
 			path = "Helper View";
 			sourceTree = "<group>";
@@ -444,6 +453,8 @@
 				639E6EA024DE55EF00073784 /* Colors.xcassets in Resources */,
 				4073787A255EE1A500B5E1E6 /* Convex_new.usdz in Resources */,
 				633707BF24DB14C2008256FC /* Preview Assets.xcassets in Resources */,
+				635611E4255EBFF5002D41AE /* confetti-blast.json in Resources */,
+				638C4641255EDDA9006401DC /* confetti-blast-2.json in Resources */,
 				4073786F255EE1A500B5E1E6 /* pinch_gesture.json in Resources */,
 				40737876255EE1A500B5E1E6 /* pinch_gesture2.json in Resources */,
 				633707BC24DB14C2008256FC /* Assets.xcassets in Resources */,
@@ -522,6 +533,7 @@
 				40D92CB524E39944002BF5D0 /* CardViews.swift in Sources */,
 				4073787C255EE1A500B5E1E6 /* MultipeerSession.swift in Sources */,
 				6370B85C24DF926F00DC43E5 /* FavoriteColumn.swift in Sources */,
+				635611E1255EBAC1002D41AE /* LottieView.swift in Sources */,
 				63061C7224E1507B001DEB43 /* Subject.swift in Sources */,
 				4035C70425519F3F005B59B9 /* MainHomePageView.swift in Sources */,
 				40737873255EE1A500B5E1E6 /* HintMessageLabel.swift in Sources */,
@@ -692,7 +704,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ARLaboratory/Preview Content\"";
-				DEVELOPMENT_TEAM = Q66549VN3W;
+				DEVELOPMENT_TEAM = JJQWTC8B37;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ARLaboratory/Supporting Files/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -700,7 +712,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.xavier.ARLaboratory;
+				PRODUCT_BUNDLE_IDENTIFIER = me.wangguofan.ARLaboratory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -715,7 +727,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ARLaboratory/Preview Content\"";
-				DEVELOPMENT_TEAM = Q66549VN3W;
+				DEVELOPMENT_TEAM = JJQWTC8B37;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ARLaboratory/Supporting Files/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -723,7 +735,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.xavier.ARLaboratory;
+				PRODUCT_BUNDLE_IDENTIFIER = me.wangguofan.ARLaboratory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
