@@ -98,18 +98,22 @@ struct ExperimentIntroPageview: View {
                                     VStack(spacing: 20){
                                         SubtitleComponent(str: "实验步骤",fontSize: 22)
                                         VStack(alignment: .leading, spacing: 15) {
-                                            Text("\t在我们的应用中，我们已经消除了整个系统中的摩擦力，我们将预置的小球设置为刚性小球（即碰撞前后不发生能量损失")
                                             Group{
-                                                Text("1.  把透镜放在光具座标尺中回央答,从透镜的位置开始在左右两边的标尺上用粉笔标出等于焦距和2倍焦距的位置.")
-                                                Text("2.  点燃蜡烛,调整它们的高度,使烛焰、凸透镜、光屏的中心大致在同一高度.")
+                                                Text("1.  把透镜放在光具座标尺中央，从透镜的位置开始在左右两边的标尺上用粉笔标出等于焦距和 2 倍焦距的位置。")
+                                                Text("2.  点燃蜡烛，调整它们的高度，使烛焰、凸透镜、光屏的中心大致在同一高度。")
                                                 
-                                                Text("3.  把蜡烛放在离凸透镜尽量远的位置上,调整光屏到透镜的距离,使烛焰在屏上成一个清晰的像,观察像的大小、正倒,测出蜡烛与凸透镜、凸透镜与光屏间的距离.把数据记录在表格中.")
-                                                Text("4.  继续把蜡烛向凸透镜靠近,观察像的变化是放大还是缩小,是正立还是倒立,蜡烛与凸透镜、凸透镜与光屏的距离测出,将数据记录在表格中.")
-                                                Text("5.  当蜡烛到一定位置上时,光屏没有像,用眼睛直接对着凸透镜观察蜡烛的像,把蜡烛与凸透镜、像与凸透镜的距离,像是放大还是缩小的,像的正倒,填入表格中。")
+                                                Text("3.  把蜡烛放在离凸透镜尽量远的位置上，调整光屏到透镜的距离，使烛焰在屏上成一个清晰的像，观察像的大小、正倒，测出蜡烛与凸透镜、凸透镜与光屏间的距离。把数据记录在表格中。")
+                                                Text("4.  继续把蜡烛向凸透镜靠近，观察像的变化是放大还是缩小，是正立还是倒立，蜡烛与凸透镜、凸透镜与光屏的距离测出，将数据记录在表格中。")
+                                                Text("5.  当蜡烛到一定位置上时，光屏没有像，用眼睛直接对着凸透镜观察蜡烛的像，把蜡烛与凸透镜、像与凸透镜的距离，像是放大还是缩小的，像的正倒，填入表格中。")
                                                 
                                             }.padding(.leading, 10)
                                             
-                                        }.padding(.horizontal,25).font(Font.system(size: 17).weight(.semibold)).foregroundColor(Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 1))).lineSpacing(7)
+                                        }
+                                        .padding(.horizontal,25)
+                                        .padding(.bottom, 60)
+                                        .font(Font.system(size: 17).weight(.semibold))
+                                        .foregroundColor(Color(#colorLiteral(red: 0.5176470588, green: 0.5176470588, blue: 0.5176470588, alpha: 1)))
+                                        .lineSpacing(7)
                                     }
                                     Spacer()
                                 }.padding(.top, 50).padding(.horizontal,73)
