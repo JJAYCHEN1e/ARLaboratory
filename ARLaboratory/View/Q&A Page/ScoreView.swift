@@ -15,6 +15,8 @@ struct ScoreView: View {
     @Binding var circleAnimationStart : Bool
     @State var twinkle : Bool = false
     @Binding var showSheet : Bool
+    @ObservedObject private var experiments =  GlobalExperiments()
+
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -137,10 +139,14 @@ struct ScoreView: View {
                         .foregroundColor(Color("secondaryColor"))
                         .overlay(Image("close")
                                     .resizable()
-                                    .frame(width: 16, height: 16))
-                        .onTapGesture(perform: {
-                            showSheet = false
-                        })
+                                    .frame(width: 16, height: 16)).onTapGesture(perform: {
+                                        experiments.updateScoreForExperiment(title: experimentName, score: Int((CGFloat(correctAnswers)/CGFloat(countOfProblems))*100), correctAnswers: correctAnswers)
+                                        showSheet = false
+
+                                    }
+
+                                    )
+
                     Spacer()
                 }
             }

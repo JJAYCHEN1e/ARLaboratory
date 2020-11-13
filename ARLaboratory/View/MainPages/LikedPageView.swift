@@ -9,6 +9,7 @@ import SwiftUI
 import NavigationStack
 struct LikedPageView: View {
     @EnvironmentObject private var navigationStack: NavigationStack
+    @ObservedObject var viewModel = ViewModel()
     var body: some View {
         let experiments: [ExperimentInfo] = queryLiked()
         ZStack {
@@ -48,7 +49,13 @@ struct LikedPageView: View {
                                         ForEach(0..<experiments.count, id: \.self){ index in
                                             let experiment = experiments[index]
                                             
-                                            Button(action: {}) {
+                                            Button(action: {
+                                                if experiment.title == "探究凸透镜成像规律"
+                                                {navigationStack.push(ExperimentIntroPageview(liked: experiment.liked, title: experiment.title, subject: experiment.subject))}else{
+                                                    self.viewModel.showAlert = true
+                                                }
+                                                
+                                            }) {
                                                 ZStack {
                                                     RoundedRectangle(cornerRadius: 16).foregroundColor(.white).shadow(color: Color(#colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)), radius: 15, x: 0, y: 2).overlay(
                                                         HStack(spacing: 20){
@@ -78,7 +85,9 @@ struct LikedPageView: View {
                                 Spacer(minLength: 0)
 
                             }.padding(.top, 60).padding(.horizontal,55)
-                            
+                            .alert(isPresented: $viewModel.showAlert, content: {
+                                self.viewModel.alert
+                            })
                         }
                     }
                 )

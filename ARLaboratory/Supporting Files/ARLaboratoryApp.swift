@@ -19,6 +19,7 @@ struct ARLaboratoryApp: App {
                 MainHomePageView()
                 
             }.edgesIgnoringSafeArea(.all)
+            .statusBar(hidden: true)
         }
     }
     
@@ -26,4 +27,7 @@ struct ARLaboratoryApp: App {
 }
 class ViewModel: ObservableObject {
     @Published var selection: Int = 2
+    @Published var showAlert: Bool = false
+    @Published var alert = Alert(title: Text("提示"), message: Text("程序员小哥哥正在加急制作这个功能，敬请期待哦～"), dismissButton: .default(Text("Got it!")))
+
 }

@@ -88,7 +88,7 @@ struct MainHomepageContentView: View {
                             LazyVStack{
                                 ForEach(0..<list1.count, id: \.self){ index in
                                     let experiment = list1[index]
-                                    if index == 0 {
+                                    if index == 1 {
                                         ExperimentCardView(title: "5大实验揭秘“力”", subject: "", chapter: -1, image: "5大实验揭秘“力”", column: "物理", numbersOfProblems: -1, numbersOfCorrectAnswers: -1, score: -1, showBottom: true, liked: false,  showArrow: false)
                                         
                                     }
