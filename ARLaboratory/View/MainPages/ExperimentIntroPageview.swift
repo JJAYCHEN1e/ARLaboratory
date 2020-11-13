@@ -40,7 +40,7 @@ struct ExperimentIntroPageview: View {
                         VStack {
                             Spacer()
                             HStack(spacing: 20) {
-                                Button(action: {}
+                                Button(action: 
                                 {
                                     self.navigationStack.push(ConvexLabViewControllerContainer(leftAction: {
                                         self.navigationStack.pop()
