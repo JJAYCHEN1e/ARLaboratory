@@ -887,18 +887,18 @@ class ConvexLabViewController: ARLabViewController {
     }
     
     func setupDistanceLabelData() {
-        self.objectDistanceLabelViewModel.startPoint = arView.project(loadedModel.findEntity(named: "Board1")!.position(relativeTo: nil)) ?? .zero
-        self.objectDistanceLabelViewModel.endPoint = arView.project(loadedModel.findEntity(named: "Len")!.position(relativeTo: nil)) ?? .zero
+        self.objectDistanceLabelViewModel.startPoint = arView.project(loadedModel.findEntity(named: "Board1")?.position(relativeTo: nil) ?? .zero) ?? .zero
+        self.objectDistanceLabelViewModel.endPoint = arView.project(loadedModel.findEntity(named: "Len")?.position(relativeTo: nil) ?? .zero) ?? .zero
         self.objectDistanceLabelViewModel.distance = (self.boardOneCenter.position(relativeTo: nil) - self.lenCenter.position(relativeTo: nil)).magnitude()
         self.objectDistanceLabelViewModel.focus = self.focus
         
-        self.virtualImageDistanceLabelViewModel.startPoint = arView.project(loadedModel.findEntity(named: "Board2")!.position(relativeTo: nil)) ?? .zero
-        self.virtualImageDistanceLabelViewModel.endPoint = arView.project(loadedModel.findEntity(named: "Len")!.position(relativeTo: nil)) ?? .zero
+        self.virtualImageDistanceLabelViewModel.startPoint = arView.project(loadedModel.findEntity(named: "Board2")?.position(relativeTo: nil) ?? .zero) ?? .zero
+        self.virtualImageDistanceLabelViewModel.endPoint = arView.project(loadedModel.findEntity(named: "Len")?.position(relativeTo: nil) ?? .zero) ?? .zero
         self.virtualImageDistanceLabelViewModel.distance = (self.boardTwoCenter.position(relativeTo: nil) - self.lenCenter.position(relativeTo: nil)).magnitude()
         self.virtualImageDistanceLabelViewModel.focus = self.focus
         
-        self.lenFocusLabelViewModel.startPoint = arView.project(loadedModel.findEntity(named: "Focus_Label_Start")!.position(relativeTo: nil)) ?? .zero
-        self.lenFocusLabelViewModel.endPoint = arView.project(loadedModel.findEntity(named: "Focus_Label_End")!.position(relativeTo: nil)) ?? .zero
+        self.lenFocusLabelViewModel.startPoint = arView.project(loadedModel.findEntity(named: "Focus_Label_Start")?.position(relativeTo: nil) ?? .zero) ?? .zero
+        self.lenFocusLabelViewModel.endPoint = arView.project(loadedModel.findEntity(named: "Focus_Label_End")?.position(relativeTo: nil) ?? .zero) ?? .zero
         self.lenFocusLabelViewModel.distance = self.focus
         self.lenFocusLabelViewModel.focus = self.focus
     }
